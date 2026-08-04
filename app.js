@@ -57,7 +57,7 @@ function initOrientationLoader() {
 }
 
 /* ==========================================================================
-   0b. Minecraft Noteblock Music Toggle (Web Audio API)
+   0b. Minecraft OG Background Music Toggle (C418 - Sweden)
    ========================================================================== */
 function initSoundToggle() {
     const btn = document.getElementById('sound-toggle-btn');
@@ -65,114 +65,53 @@ function initSoundToggle() {
     const label = document.getElementById('sound-label');
     if (!btn) return;
 
-    let audioCtx = null;
+    const bgm = new Audio('assets/minecraft_bgm.mp3');
+    bgm.loop = true;
+    bgm.volume = 0.55;
     let isPlaying = false;
-    let masterGain = null;
-    let scheduleTimeout = null;
-    let noteIndex = 0;
+    let fadeInterval = null;
 
-    // Minecraft-style noteblock melody in C major (harp instrument frequencies)
-    // Classic Minecraft ambient progression
-    const melody = [
-        // [frequency Hz, duration seconds, wave type]
-        [523.25, 0.18, 'sine'],  // C5
-        [659.25, 0.18, 'sine'],  // E5
-        [783.99, 0.18, 'sine'],  // G5
-        [1046.5, 0.36, 'sine'],  // C6
-        [783.99, 0.18, 'sine'],  // G5
-        [659.25, 0.18, 'sine'],  // E5
-        [587.33, 0.18, 'sine'],  // D5
-        [523.25, 0.36, 'sine'],  // C5
-        [0,      0.18, 'sine'],  // rest
-        [440.00, 0.18, 'sine'],  // A4
-        [523.25, 0.18, 'sine'],  // C5
-        [659.25, 0.36, 'sine'],  // E5
-        [587.33, 0.18, 'sine'],  // D5
-        [523.25, 0.18, 'sine'],  // C5
-        [493.88, 0.18, 'sine'],  // B4
-        [523.25, 0.36, 'sine'],  // C5
-        [0,      0.36, 'sine'],  // rest
-        [392.00, 0.18, 'sine'],  // G4
-        [493.88, 0.18, 'sine'],  // B4
-        [587.33, 0.18, 'sine'],  // D5
-        [659.25, 0.36, 'sine'],  // E5
-        [587.33, 0.18, 'sine'],  // D5
-        [523.25, 0.18, 'sine'],  // C5
-        [440.00, 0.18, 'sine'],  // A4
-        [523.25, 0.54, 'sine'],  // C5 (longer)
-        [0,      0.36, 'sine'],  // rest
-    ];
-
-    function playNote(freq, duration, type) {
-        if (!audioCtx || !masterGain) return;
-        if (freq === 0) return; // rest
-
-        const osc = audioCtx.createOscillator();
-        const noteGain = audioCtx.createGain();
-        const now = audioCtx.currentTime;
-
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, now);
-
-        // Noteblock-style attack/decay envelope
-        noteGain.gain.setValueAtTime(0, now);
-        noteGain.gain.linearRampToValueAtTime(0.18, now + 0.015);
-        noteGain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 0.9);
-
-        osc.connect(noteGain);
-        noteGain.connect(masterGain);
-
-        osc.start(now);
-        osc.stop(now + duration);
+    function fadeIn() {
+        clearInterval(fadeInterval);
+        bgm.volume = 0;
+        bgm.play().catch(err => console.log('Audio playback interaction needed:', err));
+        fadeInterval = setInterval(() => {
+            if (bgm.volume < 0.55) {
+                bgm.volume = Math.min(0.55, bgm.volume + 0.04);
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, 80);
     }
 
-    function scheduleNext() {
-        if (!isPlaying) return;
-        const [freq, dur, type] = melody[noteIndex];
-        playNote(freq, dur, type);
-        noteIndex = (noteIndex + 1) % melody.length;
-        scheduleTimeout = setTimeout(scheduleNext, dur * 1000);
-    }
-
-    function startMusic() {
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            masterGain = audioCtx.createGain();
-            masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
-            masterGain.connect(audioCtx.destination);
-        }
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        // Fade in
-        masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-        masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
-        masterGain.gain.linearRampToValueAtTime(0.6, audioCtx.currentTime + 1.2);
-        isPlaying = true;
-        scheduleNext();
-    }
-
-    function stopMusic() {
-        isPlaying = false;
-        clearTimeout(scheduleTimeout);
-        if (masterGain && audioCtx) {
-            masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-            masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
-            masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.8);
-        }
+    function fadeOut() {
+        clearInterval(fadeInterval);
+        fadeInterval = setInterval(() => {
+            if (bgm.volume > 0.04) {
+                bgm.volume = Math.max(0, bgm.volume - 0.04);
+            } else {
+                bgm.pause();
+                bgm.volume = 0.55;
+                clearInterval(fadeInterval);
+            }
+        }, 80);
     }
 
     btn.addEventListener('click', () => {
         if (isPlaying) {
-            stopMusic();
+            fadeOut();
+            isPlaying = false;
             btn.classList.remove('playing');
             icon.textContent = '♪';
             label.textContent = 'MUSIC';
-            btn.title = 'Play Music';
+            btn.title = 'Play OG Minecraft Music';
         } else {
-            startMusic();
+            fadeIn();
+            isPlaying = true;
             btn.classList.add('playing');
             icon.textContent = '♫';
             label.textContent = 'MUTE';
-            btn.title = 'Mute Music';
+            btn.title = 'Mute OG Minecraft Music';
         }
     });
 }
