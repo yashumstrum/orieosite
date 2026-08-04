@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCampusMapInteractions();
     initCultureGallery();
     initSoundToggle();
+    initIslandXPOrbs();
 });
 
 /* ==========================================================================
@@ -740,5 +741,31 @@ function initCultureGallery() {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
         }
+    });
+}
+
+/* ==========================================================================
+   10. Minecraft XP Orbs (Particle FX on Island Hover)
+   ========================================================================== */
+function initIslandXPOrbs() {
+    document.querySelectorAll('.island-wrapper').forEach(island => {
+        island.addEventListener('mouseenter', () => {
+            for (let i = 0; i < 6; i++) {
+                const orb = document.createElement('div');
+                orb.className = 'xp-orb';
+                const startX = 20 + Math.random() * 180;
+                const startY = 30 + Math.random() * 120;
+                const dx = (Math.random() - 0.5) * 80 + 'px';
+                const dy = -(Math.random() * 70 + 40) + 'px';
+
+                orb.style.left = `${startX}px`;
+                orb.style.top = `${startY}px`;
+                orb.style.setProperty('--dx', dx);
+                orb.style.setProperty('--dy', dy);
+
+                island.appendChild(orb);
+                setTimeout(() => orb.remove(), 1100);
+            }
+        });
     });
 }
