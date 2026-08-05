@@ -57,18 +57,26 @@ body {
 }
 
 /* --- Orientation Loading Screen (Minecraft Blocky Theme) --- */
+/* ====================================================
+   LOADING SCREEN – Minecraft Overworld Style
+   ==================================================== */
 .loader-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, #2563eb 0%, #60a5fa 60%, #bae6fd 100%);
+    inset: 0;
+    background: linear-gradient(180deg,
+        #1565c0 0%,
+        #1976d2 20%,
+        #42a5f5 55%,
+        #64b5f6 75%,
+        #bbdefb 100%);
     z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
     transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow: hidden;
 }
 
 .loader-overlay.fade-out {
@@ -77,82 +85,141 @@ body {
     pointer-events: none;
 }
 
+/* Floating background clouds on loader */
+.loader-overlay::before,
+.loader-overlay::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    pointer-events: none;
+}
+.loader-overlay::before {
+    width: 260px; height: 50px;
+    top: 12%; left: 8%;
+    animation: floatCloud 20s linear infinite;
+}
+.loader-overlay::after {
+    width: 180px; height: 38px;
+    top: 20%; right: 10%;
+    animation: floatCloud 26s linear infinite reverse;
+}
+
+/* Main Loading Card — Minecraft Gold Block Style */
 .loader-content {
     text-align: center;
     width: 90%;
-    max-width: 520px;
-    padding: 2.5rem 2rem;
-    background: rgba(255, 255, 255, 0.94);
-    border: 4px solid #0284c7;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.2), inset 0 0 0 4px #bae6fd;
+    max-width: 480px;
+    padding: 2.2rem 2rem 1.8rem;
+    background: #f9c74f;
+    box-shadow:
+        5px 0   0 0 #7a4f00,
+        -5px 0  0 0 #7a4f00,
+        0  5px  0 0 #7a4f00,
+        0 -5px  0 0 #7a4f00,
+        inset 3px 3px 0 0 rgba(255,255,220,0.7),
+        inset -3px -3px 0 0 rgba(100,60,0,0.35),
+        0 15px 40px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 2;
 }
 
-.loader-logo-glow {
-    font-family: var(--font-blocky);
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: #0284c7;
-    text-shadow: 3px 3px 0px #bae6fd, -2px -2px 0px #1e3a8a;
-    margin-bottom: 0.5rem;
-    animation: beaconPulse 1.5s infinite alternate;
+.loader-badge {
+    display: inline-block;
+    background: #7a4f00;
+    color: #f9c74f;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.2);
 }
 
 .loader-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.1rem;
+    color: #1a0a00;
+    margin: 0 0 0.35rem 0;
     letter-spacing: 2px;
-    color: #0f172a;
-    margin: 0.6rem 0 0.3rem 0;
-    text-transform: uppercase;
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.4);
+    line-height: 1.4;
 }
 
 .loader-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: #0284c7;
-    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+    color: #5a3000;
+    margin-bottom: 1.6rem;
+    opacity: 0.85;
 }
 
+/* XP-Style Green Progress Bar */
 .loader-progress-wrapper {
     width: 100%;
-    height: 14px;
-    background: #e2e8f0;
-    border: 3px solid #0284c7;
-    border-radius: 8px;
+    height: 16px;
+    background: #2d1a00;
+    border: none;
+    box-shadow:
+        3px 0  0 0 #7a4f00,
+        -3px 0 0 0 #7a4f00,
+        0  3px 0 0 #7a4f00,
+        0 -3px 0 0 #7a4f00,
+        inset 2px 2px 0 0 rgba(0,0,0,0.4);
     overflow: hidden;
-    margin-bottom: 1.2rem;
-    padding: 1px;
+    margin-bottom: 0.9rem;
+    padding: 2px;
 }
 
 .loader-progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #10b981 0%, #06b6d4 100%);
-    border-radius: 4px;
-    transition: width 0.1s linear;
+    background: linear-gradient(
+        180deg,
+        #a8ff5e 0%,
+        #78cc2e 50%,
+        #5aad1c 100%
+    );
+    transition: width 0.12s linear;
+    box-shadow: inset 0 3px 0 rgba(255,255,255,0.35);
 }
 
 .loader-status {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--font-heading);
-    font-size: 0.72rem;
-    color: #334155;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    color: #2d1a00;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
 }
 
-.loader-status-text {
-    letter-spacing: 1px;
-}
+.loader-status-text { opacity: 0.9; }
 
 .loader-percentage {
-    color: #0284c7;
+    color: #2d6e00;
     font-weight: 700;
+}
+
+/* Minecraft Tip box */
+.loader-tip {
+    background: rgba(0,0,0,0.1);
+    border-left: 4px solid #5aad1c;
+    padding: 0.55rem 0.8rem;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: #2d1a00;
+    line-height: 1.5;
+}
+
+.tip-label {
+    font-weight: 800;
+    color: #2d6e00;
+    letter-spacing: 1px;
 }
 
 /* --- Starfield Canvas --- */

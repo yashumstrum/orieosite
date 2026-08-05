@@ -23,36 +23,62 @@ function initOrientationLoader() {
     const bar = document.getElementById('loader-bar');
     const percentEl = document.getElementById('loader-percent');
     const statusTextEl = document.getElementById('loader-status-text');
-    
+    const tipTextEl = document.getElementById('loader-tip-text');
+
     if (!loader || !bar || !percentEl || !statusTextEl) return;
-    
+
+    const minecraftTips = [
+        "Check the Schedule island for ADYPU campus events!",
+        "Diamonds are rare. So is this orientation — enjoy every moment.",
+        "The POC island has all your Point of Contact info. Don't get lost!",
+        "Sleep through the night by attending ALL orientation sessions.",
+        "Pro tip: The Guidelines island keeps you on track!",
+        "Respawn point set ✅ — Newton School of Technology, ADYPU Pune.",
+        "Culture island = where legends are made. Check it out!",
+        "Remember: In Minecraft and at NST, teamwork makes the dream work."
+    ];
+
+    let tipIndex = 0;
+    if (tipTextEl) {
+        tipTextEl.textContent = minecraftTips[0];
+        setInterval(() => {
+            tipIndex = (tipIndex + 1) % minecraftTips.length;
+            tipTextEl.style.opacity = '0';
+            setTimeout(() => {
+                tipTextEl.textContent = minecraftTips[tipIndex];
+                tipTextEl.style.opacity = '1';
+            }, 200);
+        }, 2000);
+        tipTextEl.style.transition = 'opacity 0.2s ease';
+    }
+
     let progress = 0;
-    const duration = 1800; // 1.8 seconds duration
+    const duration = 2200; // 2.2 seconds duration
     const intervalTime = 20;
     const increment = 100 / (duration / intervalTime);
-    
+
     const interval = setInterval(() => {
         progress += increment;
         if (progress > 100) progress = 100;
-        
+
         bar.style.width = `${progress}%`;
         percentEl.textContent = `${Math.floor(progress)}%`;
-        
-        if (progress < 30) {
+
+        if (progress < 25) {
             statusTextEl.textContent = "GENERATING MINECRAFT WORLD...";
-        } else if (progress < 65) {
+        } else if (progress < 55) {
             statusTextEl.textContent = "BUILDING ADYPU CAMPUS...";
-        } else if (progress < 95) {
-            statusTextEl.textContent = "LOADING ORIENTATION MAP...";
+        } else if (progress < 85) {
+            statusTextEl.textContent = "PLACING ORIENTATION ISLANDS...";
         } else {
-            statusTextEl.textContent = "WELCOME TO NST ORIENTATION 2026!";
+            statusTextEl.textContent = "WELCOME TO NST, BATCH OF 2030!";
         }
-        
+
         if (progress >= 100) {
             clearInterval(interval);
             setTimeout(() => {
                 loader.classList.add('fade-out');
-            }, 300);
+            }, 350);
         }
     }, intervalTime);
 }
