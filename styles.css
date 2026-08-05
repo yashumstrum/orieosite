@@ -806,17 +806,24 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    width: /* ==========================================================================
+   MINECRAFT OVERWORLD MODAL DIALOGS
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(4, 2, 10, 0.8);
-    backdrop-filter: blur(15px);
-    z-index: 100;
+    background-color: rgba(186, 230, 253, 0.45); /* Light sky blue backdrop */
+    backdrop-filter: blur(10px);
+    z-index: 200;
     opacity: 0;
     visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     padding: 1.5rem;
 }
 
@@ -826,18 +833,25 @@ body {
 }
 
 .modal-content {
-    background: var(--color-bg-panel);
-    border: 1px solid var(--color-border);
-    border-radius: 24px;
+    background: #f9c74f; /* Minecraft Gold/Sand Theme */
+    border: none;
+    border-radius: 8px;
     width: 100%;
-    max-width: 650px;
-    max-height: 85vh;
-    padding: 2.5rem;
+    max-width: 680px;
+    max-height: 88vh;
+    padding: 2rem 2.2rem;
     position: relative;
-    transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 
-                inset 0 0 20px rgba(255, 255, 255, 0.02);
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Layered Minecraft pixel border & shadow */
+    box-shadow:
+        6px 0   0 0 #7a4f00,
+        -6px 0  0 0 #7a4f00,
+        0  6px  0 0 #7a4f00,
+        0 -6px  0 0 #7a4f00,
+        inset 4px 4px 0 0 rgba(255,255,220,0.7),
+        inset -4px -4px 0 0 rgba(100,60,0,0.35),
+        0 25px 60px rgba(15, 23, 42, 0.3);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -848,78 +862,74 @@ body {
 }
 
 .modal-content.size-large {
-    max-width: 850px;
+    max-width: 900px;
 }
 
 .modal-content.size-medium {
-    max-width: 550px;
+    max-width: 580px;
 }
 
-/* Glowing Border lines matching island theme */
-#modal-schedule .modal-content { border-top: 3px solid var(--color-cyan); }
-#modal-poc .modal-content { border-top: 3px solid var(--color-purple); }
-#modal-guidelines .modal-content { border-top: 3px solid var(--color-gold); }
-#modal-competitions .modal-content { border-top: 3px solid var(--color-pink); }
-#modal-locked .modal-content { border-top: 3px solid var(--color-red); }
-#modal-culture .modal-content { border-top: 3px solid var(--color-pink); }
-#modal-sponsors .modal-content { border-top: 3px solid var(--color-green); }
-#modal-faculty .modal-content { border-top: 3px solid var(--color-green); }
-
+/* Close Button — Red Minecraft Pixel Button */
 .modal-close-btn {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    color: var(--color-text-muted);
-    font-size: 1.2rem;
-    width: 38px;
-    height: 38px;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: #ef4444;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: var(--transition-smooth);
+    box-shadow:
+        2px 0 0 0 #991b1b,
+        -2px 0 0 0 #991b1b,
+        0 2px 0 0 #991b1b,
+        0 -2px 0 0 #991b1b,
+        inset 2px 2px 0 0 rgba(255,255,255,0.4);
+    transition: transform 0.15s, background-color 0.15s;
+    z-index: 10;
 }
 
 .modal-close-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--color-text-main);
-    transform: rotate(90deg);
+    background: #dc2626;
+    transform: scale(1.1);
 }
 
+/* Header & Title */
 .modal-header-inner {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #7a4f00;
 }
 
 .header-icon {
-    font-size: 1.8rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    font-size: 1.6rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #7a4f00;
+    color: #f9c74f;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.2);
 }
 
-.header-icon.cyan-glow { color: var(--color-cyan); text-shadow: 0 0 10px var(--color-cyan-glow); }
-.header-icon.purple-glow { color: var(--color-purple); text-shadow: 0 0 10px var(--color-purple-glow); }
-.header-icon.gold-glow { color: var(--color-gold); text-shadow: 0 0 10px var(--color-gold-glow); }
-.header-icon.pink-glow { color: var(--color-pink); text-shadow: 0 0 10px var(--color-pink-glow); }
-.header-icon.green-glow { color: var(--color-green); text-shadow: 0 0 10px var(--color-green-glow); }
-
 .modal-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.05rem;
     letter-spacing: 1px;
-    color: var(--color-text-main);
+    color: #1a0a00;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.4);
+    line-height: 1.4;
 }
 
 .modal-body {
@@ -928,36 +938,84 @@ body {
     padding-right: 0.5rem;
 }
 
-/* Custom Scrollbars */
+/* Custom Scrollbars inside Modals */
 .modal-body::-webkit-scrollbar,
 .scroll-vertical::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 .modal-body::-webkit-scrollbar-track,
 .scroll-vertical::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(122, 79, 0, 0.15);
+    border-radius: 4px;
 }
 
 .modal-body::-webkit-scrollbar-thumb,
 .scroll-vertical::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.modal-body::-webkit-scrollbar-thumb:hover,
-.scroll-vertical::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #7a4f00;
+    border-radius: 4px;
 }
 
 .section-intro {
-    font-size: 1.02rem;
+    font-size: 0.92rem;
     line-height: 1.6;
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    color: #3b2000;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
-/* --- TIMELINE SCHEDULE --- */
+/* --- MINECRAFT TAB CONTROLS --- */
+.tab-controls {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #7a4f00;
+    padding-bottom: 0.8rem;
+}
+
+.tab-btn {
+    background: #ffffff;
+    border: none;
+    color: #2d1a00;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.58rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    box-shadow:
+        2px 0 0 0 #7a4f00,
+        -2px 0 0 0 #7a4f00,
+        0 2px 0 0 #7a4f00,
+        0 -2px 0 0 #7a4f00;
+    transition: transform 0.1s, background-color 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    background: #fef08a;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: #55ff55;
+    color: #004400;
+    box-shadow:
+        2px 0 0 0 #006600,
+        -2px 0 0 0 #006600,
+        0 2px 0 0 #006600,
+        0 -2px 0 0 #006600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* --- MINECRAFT PARCHMENT TIMELINE ITEMS --- */
 .timeline-container {
     position: relative;
     padding-left: 2rem;
@@ -967,130 +1025,196 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: 7px;
-    width: 2px;
+    left: 8px;
+    width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, var(--color-cyan) 0%, rgba(139, 92, 246, 0.2) 100%);
+    background: #7a4f00;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .timeline-badge {
     position: absolute;
-    left: -2.7rem;
+    left: -2.8rem;
     top: 0.2rem;
-    background: #0f0723;
-    border: 2px solid var(--color-cyan);
-    color: var(--color-cyan);
-    border-radius: 20px;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.75rem;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-transform: uppercase;
+    background: #5aad1c;
+    color: #ffffff;
+    border: 2px solid #2d6e00;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+    font-family: 'Press Start 2P', monospace;
 }
 
 .timeline-details {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: var(--transition-smooth);
-}
-
-.timeline-details:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(0, 242, 254, 0.2);
+    background: #ffffff;
+    border: 3px solid #7a4f00;
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .time-tag {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-cyan);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0284c7;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    font-family: var(--font-mono);
 }
 
 .event-title {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.82rem;
+    color: #1a0a00;
     margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .event-desc {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
+    color: #334155;
+    font-size: 0.88rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .venue-tag {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(139, 92, 246, 0.15);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    color: #c084fc;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    background: #fef08a;
+    border: 2px solid #ca8a04;
+    color: #854d0e;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: var(--transition-smooth);
 }
 
 .venue-tag:hover {
-    background: var(--color-purple);
-    color: #fff;
+    background: #fde047;
 }
 
+/* --- MINECRAFT SEARCH & FILTER BARS --- */
+.search-box input {
+    width: 100%;
+    padding: 0.75rem 1.2rem 0.75rem 2.6rem;
+    background: #ffffff;
+    border: 3px solid #7a4f00;
+    border-radius: 6px;
+    color: #1a0a00;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
 
-/* --- TABS --- */
-.tab-controls {
+.search-box i {
+    color: #7a4f00;
+}
+
+.filter-btn {
+    background: #ffffff;
+    border: 2px solid #7a4f00;
+    color: #1a0a00;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #55ff55;
+    color: #004400;
+    border-color: #006600;
+}
+
+/* --- MINECRAFT POC & FACULTY CARDS --- */
+.poc-card {
+    background: #ffffff;
+    border: 3px solid #7a4f00;
+    border-radius: 6px;
+    padding: 1.2rem;
     display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.tab-btn {
-    background: none;
-    border: none;
-    color: var(--color-text-muted);
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    border-bottom: 2px solid transparent;
+.poc-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    background: #fef08a;
+    border: 2px solid #ca8a04;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    font-size: 1.4rem;
+    color: #854d0e;
 }
 
-.tab-btn:hover {
-    color: var(--color-text-main);
+.poc-role-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    color: #0284c7;
+    margin-bottom: 0.3rem;
 }
 
-.tab-btn.active {
-    color: var(--color-cyan);
-    border-bottom-color: var(--color-cyan);
+.poc-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.78rem;
+    color: #1a0a00;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
 }
 
-.tab-content {
-    display: none;
+.poc-desc {
+    color: #475569;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
 }
 
-.tab-content.active {
-    display: block;
+.contact-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: #f1f5f9;
+    border: 2px solid #94a3b8;
+    color: #334155;
+}
+
+/* --- ACCORDION & GUIDELINE CARDS --- */
+.accordion-item {
+    background: #ffffff;
+    border: 3px solid #7a4f00;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+
+.accordion-header {
+    background: #ffffff;
+    color: #1a0a00;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.68rem;
+    padding: 1rem 1.2rem;
+}
+
+.accordion-body {
+    color: #334155;
+    background: #f8fafc;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 1rem 1.2rem;
+    border-top: 2px solid #e2e8f0;
+}ock;
 }
 
 
