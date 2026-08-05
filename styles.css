@@ -801,23 +801,17 @@ body {
 }
 
 
-/* --- GLASSMORPHIC MODALS --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: /* ==========================================================================
+/* ==========================================================================
    MINECRAFT OVERWORLD MODAL DIALOGS
    ========================================================================== */
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(186, 230, 253, 0.45); /* Light sky blue backdrop */
-    backdrop-filter: blur(10px);
-    z-index: 200;
+    background-color: rgba(15, 23, 42, 0.65); /* Dark dimming sky backdrop */
+    backdrop-filter: blur(12px);
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     display: flex;
