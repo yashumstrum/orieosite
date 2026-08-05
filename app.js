@@ -536,8 +536,9 @@ function initPocDirectory() {
                     <span class="poc-role-badge">${poc.role}</span>
                     <h3 class="poc-name">${poc.name}</h3>
                     <div class="poc-contacts">
-                        <a href="tel:${poc.phone}" class="contact-link phone" title="Call ${poc.name}"><i class="fa-solid fa-phone"></i></a>
-                        <a href="https://wa.me/${poc.phone.replace('+', '')}?text=Hi%20${encodeURIComponent(poc.name)},%20I%20am%20a%20junior%20joining%20NST..." target="_blank" class="contact-link whatsapp" title="WhatsApp ${poc.name}"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://wa.me/${poc.phone.replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(poc.name)},%20I%20am%20a%20junior%20joining%20NST..." target="_blank" class="contact-link whatsapp" title="Chat on WhatsApp with ${poc.name}">
+                            <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
+                        </a>
                     </div>
                 </div>
             `;

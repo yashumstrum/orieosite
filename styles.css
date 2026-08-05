@@ -1240,29 +1240,42 @@ body {
 }
 
 .contact-link {
-    width: 46px;
-    height: 46px;
-    border-radius: 8px;
-    background: #f1f5f9;
-    border: 2.5px solid #7a4f00;
-    color: #1a0a00;
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     align-items: center;
-    font-size: 1.25rem;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    height: 40px;
+    border-radius: 6px;
+    background: #25d366;
+    border: 2.5px solid #128c7e;
+    color: #ffffff !important;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow:
+        0 3px 0 0 #075e54,
+        inset 0 1px 0 0 rgba(255,255,255,0.4);
     transition: transform 0.15s, background-color 0.15s;
+    cursor: pointer;
 }
 
-.contact-link.phone:hover {
-    background: #e0f2fe;
-    color: #0284c7;
-    transform: scale(1.1);
+.contact-link i,
+.contact-link span {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
-.contact-link.whatsapp:hover {
-    background: #dcfce7;
-    color: #16a34a;
-    transform: scale(1.1);
+.contact-link i {
+    font-size: 1.15rem;
+}
+
+.contact-link:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+    color: #ffffff !important;
+    text-decoration: none !important;
 }
 
 /* --- ACCORDION & GUIDELINE CARDS --- */
