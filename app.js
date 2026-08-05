@@ -496,6 +496,7 @@ const pocData = [
         dept: "hostel",
         desc: "Lead for incampus girls hostel facilities, safety, and residential assistance.",
         avatar: "fa-person-shelter",
+        image: "assets/aastha_musale.jpg",
         phone: "+917387662975",
         email: "aastha.musale@newtonschool.co"
     },
@@ -505,6 +506,7 @@ const pocData = [
         dept: "coordination",
         desc: "Oversees team coordination, event execution, and inter-departmental support.",
         avatar: "fa-people-roof",
+        image: "assets/ekta_sachdev.jpg",
         phone: "+917024893381",
         email: "ekta.sachdev@newtonschool.co"
     }
