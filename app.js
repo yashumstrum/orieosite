@@ -429,62 +429,80 @@ function initCountdownTimer() {
 }
 
 /* ==========================================================================
-   4. POC & OC Directory Rendering and Filtering (CONTACT modal)
+   4. Orientation Leads Directory Rendering and Filtering (LEADS modal)
    ========================================================================== */
 const pocData = [
     {
-        name: "Aryan Sharma",
-        role: "OC PRESIDENT",
-        dept: "oc-head",
-        desc: "Oversees all orientation logistics and student integration. Reach out for major concerns.",
-        avatar: "fa-user-tie",
-        phone: "+919876543210",
-        email: "aryan.sharma@newtonschool.co"
+        name: "Vanshika Soni",
+        role: "OC LEAD",
+        dept: "coordination",
+        desc: "Overall Orientation Committee Lead. Reach out for major escalations, schedule coordination, and team management.",
+        avatar: "fa-user-gear",
+        phone: "+919867915727",
+        email: "vanshika.soni@newtonschool.co"
     },
     {
-        name: "Diya Kapoor",
-        role: "HOSPITALITY LEAD",
-        dept: "hospitality",
-        desc: "Handles hostel allotments, dining operations, and campus tours. Direct any room issues here.",
+        name: "Suraj Patil",
+        role: "DOCUMENTATION LEAD",
+        dept: "coordination",
+        desc: "Leads orientation documentation, schedules, verification slips, and records.",
+        avatar: "fa-file-lines",
+        phone: "+918010999488",
+        email: "suraj.patil@newtonschool.co"
+    },
+    {
+        name: "Prithviraj Ghorpade",
+        role: "DOCUMENTATION LEAD",
+        dept: "coordination",
+        desc: "Co-leads student documentation, registration logs, and official notices.",
+        avatar: "fa-clipboard-check",
+        phone: "+919368804152",
+        email: "prithviraj.g@newtonschool.co"
+    },
+    {
+        name: "Avkash Singh",
+        role: "INCAMPUS HOSTEL LEAD",
+        dept: "hostel",
+        desc: "Incharge of incampus hostel allotments, room desk, and boy's hostel queries.",
+        avatar: "fa-building-user",
+        phone: "+918604651504",
+        email: "avkash.singh@newtonschool.co"
+    },
+    {
+        name: "Sunny Pandey",
+        role: "TRIBE HOSTEL LEAD",
+        dept: "hostel",
+        desc: "Manages Tribe hostel facilities, shuttle integration, and residential support.",
         avatar: "fa-hotel",
-        phone: "+919876543211",
-        email: "diya.k@newtonschool.co"
+        phone: "+916307217313",
+        email: "sunny.pandey@newtonschool.co"
     },
     {
-        name: "Kabir Verma",
-        role: "TECHNICAL DIRECTOR",
-        dept: "tech",
-        desc: "Organizer for the Induction Hackathon and platform manager. Contact for lab access.",
-        avatar: "fa-laptop-code",
-        phone: "+919876543212",
-        email: "kabir.v@newtonschool.co"
+        name: "Rishi",
+        role: "YS 1 HOSTEL LEAD",
+        dept: "hostel",
+        desc: "Incharge of YS 1 hostel accommodations, check-ins, and student comfort.",
+        avatar: "fa-bed",
+        phone: "+918815704939",
+        email: "rishi@newtonschool.co"
     },
     {
-        name: "Sneha Patel",
-        role: "LOGISTICS COORDINATOR",
-        dept: "logistics",
-        desc: "Manages event materials, transport coordination, and schedule adjustments.",
-        avatar: "fa-truck-ramp-box",
-        phone: "+919876543213",
-        email: "sneha.patel@newtonschool.co"
+        name: "Aastha Musale",
+        role: "INCAMPUS GIRLS HOSTEL LEAD",
+        dept: "hostel",
+        desc: "Lead for incampus girls hostel facilities, safety, and residential assistance.",
+        avatar: "fa-person-shelter",
+        phone: "+917387662975",
+        email: "aastha.musale@newtonschool.co"
     },
     {
-        name: "Rohan Malhotra",
-        role: "SAFETY & EMERGENCY HEAD",
-        dept: "logistics",
-        desc: "Medical liaison and security coordinator. Contact for wellness clinic or safety details.",
-        avatar: "fa-shield-halved",
-        phone: "+919876543214",
-        email: "rohan.m@newtonschool.co"
-    },
-    {
-        name: "Kiara Sen",
-        role: "CULTURAL COORDINATOR",
-        dept: "hospitality",
-        desc: "Arranges the food carnival, student panels, and night performances.",
-        avatar: "fa-guitar",
-        phone: "+919876543215",
-        email: "kiara.sen@newtonschool.co"
+        name: "Ekta Sachdev",
+        role: "COORDINATION LEAD",
+        dept: "coordination",
+        desc: "Oversees team coordination, event execution, and inter-departmental support.",
+        avatar: "fa-people-roof",
+        phone: "+917024893381",
+        email: "ekta.sachdev@newtonschool.co"
     }
 ];
 
