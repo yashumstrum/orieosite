@@ -448,6 +448,7 @@ const pocData = [
         dept: "coordination",
         desc: "Leads orientation documentation, schedules, verification slips, and records.",
         avatar: "fa-file-lines",
+        image: "assets/suraj_patil.jpg",
         phone: "+918010999488",
         email: "suraj.patil@newtonschool.co"
     },
@@ -457,6 +458,7 @@ const pocData = [
         dept: "coordination",
         desc: "Co-leads student documentation, registration logs, and official notices.",
         avatar: "fa-clipboard-check",
+        image: "assets/prithviraj_ghorpade.jpg",
         phone: "+919368804152",
         email: "prithviraj.g@newtonschool.co"
     },
@@ -475,6 +477,7 @@ const pocData = [
         dept: "hostel",
         desc: "Manages Tribe hostel facilities, shuttle integration, and residential support.",
         avatar: "fa-hotel",
+        image: "assets/sunny_pandey.jpg",
         phone: "+916307217313",
         email: "sunny.pandey@newtonschool.co"
     },
