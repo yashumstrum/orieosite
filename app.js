@@ -540,7 +540,6 @@ function initPocDirectory() {
                     <div class="poc-contacts">
                         <a href="tel:${poc.phone}" class="contact-link phone" title="Call ${poc.name}"><i class="fa-solid fa-phone"></i></a>
                         <a href="https://wa.me/${poc.phone.replace('+', '')}?text=Hi%20${encodeURIComponent(poc.name)},%20I%20am%20a%20junior%20joining%20NST..." target="_blank" class="contact-link whatsapp" title="WhatsApp ${poc.name}"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="mailto:${poc.email}" class="contact-link email" title="Email ${poc.name}"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
             `;
