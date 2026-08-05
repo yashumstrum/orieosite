@@ -85,7 +85,7 @@ function initOrientationLoader() {
 }
 
 /* ==========================================================================
-   0a. 3D Cloud Fly-Through & Staggered Spring Island Reveal Animation
+   0a. Majestic Cloud Parting & Staggered Island Entrance Animation
    ========================================================================== */
 function triggerWorldEntranceAnimation() {
     const canvas = document.getElementById('cloud-warp-canvas');
@@ -96,27 +96,28 @@ function triggerWorldEntranceAnimation() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // 1. Camera zoom entrance
+    // 1. Camera zoom-out entrance
     if (universe) {
         universe.classList.add('zoom-entrance');
-        setTimeout(() => universe.classList.remove('zoom-entrance'), 120);
+        setTimeout(() => universe.classList.remove('zoom-entrance'), 1500);
     }
 
-    // 2. Create 45 3D voxel clouds flying past camera
+    // 2. Generate 35 puffy Minecraft cloud clusters floating outwards
     const clouds = [];
-    for (let i = 0; i < 45; i++) {
+    for (let i = 0; i < 35; i++) {
         clouds.push({
-            x: (Math.random() - 0.5) * width * 2.2,
-            y: (Math.random() - 0.5) * height * 2.2,
-            z: Math.random() * 800 + 100,
-            w: 140 + Math.random() * 180,
-            h: 45 + Math.random() * 55,
-            speed: 18 + Math.random() * 16
+            x: (Math.random() - 0.5) * width * 1.8,
+            y: (Math.random() - 0.5) * height * 1.8,
+            z: Math.random() * 600 + 150,
+            w: 180 + Math.random() * 220,
+            h: 55 + Math.random() * 65,
+            speed: 4 + Math.random() * 4, // Slow, majestic cloud drift
+            driftX: (Math.random() - 0.5) * 2.5
         });
     }
 
     const startTime = performance.now();
-    const duration = 1300;
+    const duration = 3200; // 3.2 seconds majestic cloud reveal
 
     function animateClouds(now) {
         const elapsed = now - startTime;
@@ -124,21 +125,34 @@ function triggerWorldEntranceAnimation() {
 
         clouds.forEach(c => {
             c.z -= c.speed;
-            if (c.z < 20) return;
+            c.x += c.driftX;
+            if (c.z < 10) return;
 
-            const scale = 450 / c.z;
-            const screenX = width / 2 + c.x * (scale * 0.5);
-            const screenY = height / 2 + c.y * (scale * 0.5);
-            const cloudW = c.w * (scale * 0.5);
-            const cloudH = c.h * (scale * 0.5);
+            const scale = 400 / c.z;
+            const screenX = width / 2 + c.x * (scale * 0.45);
+            const screenY = height / 2 + c.y * (scale * 0.45);
+            const cloudW = c.w * (scale * 0.45);
+            const cloudH = c.h * (scale * 0.45);
 
-            const fade = Math.min(1, elapsed / 150) * Math.min(1, (1300 - elapsed) / 400);
-            if (fade > 0.01 && cloudW < width) {
-                ctx.fillStyle = `rgba(255, 255, 255, ${fade * 0.95})`;
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.08)';
-                ctx.shadowBlur = 15;
+            // Smooth cloud fade in and fade out
+            const fade = Math.min(1, elapsed / 300) * Math.min(1, (3200 - elapsed) / 800);
+            if (fade > 0.01 && cloudW < width * 1.5) {
+                const r = 18 * Math.max(0.4, scale * 0.45);
+                ctx.fillStyle = `rgba(255, 255, 255, ${fade * 0.92})`;
+                ctx.shadowColor = 'rgba(15, 23, 42, 0.08)';
+                ctx.shadowBlur = 20;
+
                 ctx.beginPath();
-                ctx.roundRect(screenX - cloudW / 2, screenY - cloudH / 2, cloudW, cloudH, 12 * Math.max(0.5, scale * 0.5));
+                // Main cloud body
+                ctx.roundRect(screenX - cloudW / 2, screenY - cloudH / 2, cloudW, cloudH, r);
+                // Top puff lobe
+                ctx.roundRect(screenX - cloudW * 0.25, screenY - cloudH * 0.75, cloudW * 0.5, cloudH * 0.6, r);
+                ctx.fill();
+
+                // Lower subtle cloud shadow
+                ctx.fillStyle = `rgba(220, 235, 252, ${fade * 0.5})`;
+                ctx.beginPath();
+                ctx.roundRect(screenX - cloudW * 0.4, screenY + cloudH * 0.1, cloudW * 0.8, cloudH * 0.35, r);
                 ctx.fill();
             }
         });
@@ -147,13 +161,13 @@ function triggerWorldEntranceAnimation() {
             requestAnimationFrame(animateClouds);
         } else {
             canvas.classList.add('fade-out');
-            setTimeout(() => (canvas.style.display = 'none'), 600);
+            setTimeout(() => (canvas.style.display = 'none'), 800);
         }
     }
 
     requestAnimationFrame(animateClouds);
 
-    // 3. Staggered 3D Spring-Bounce float-in for the 6 islands
+    // 3. Staggered 3D Float-Up Entrance for the 6 Islands
     const revealOrder = [
         'island-schedule',
         'island-poc',
@@ -168,7 +182,7 @@ function triggerWorldEntranceAnimation() {
         if (islandEl) {
             setTimeout(() => {
                 islandEl.classList.add('revealed');
-            }, 250 + idx * 160);
+            }, 600 + idx * 320); // 320ms majestic spacing between islands
         }
     });
 }
