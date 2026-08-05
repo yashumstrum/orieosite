@@ -438,6 +438,7 @@ const pocData = [
         dept: "coordination",
         desc: "Overall Orientation Committee Lead. Reach out for major escalations, schedule coordination, and team management.",
         avatar: "fa-user-gear",
+        image: "assets/vanshika_soni.jpg",
         phone: "+919867915727",
         email: "vanshika.soni@newtonschool.co"
     },
@@ -516,12 +517,7 @@ function initPocDirectory() {
     function renderPocs(data) {
         grid.innerHTML = '';
         if (data.length === 0) {
-            grid.innerHTML = `
-                <div class="no-results-msg" style="grid-column: 1/-1; text-align: center; color: var(--color-text-muted); padding: 2rem;">
-                    <i class="fa-solid fa-user-slash" style="font-size: 2.5rem; margin-bottom: 0.5rem; display: block; color: var(--color-purple);"></i>
-                    No contact match found. Try searching another term.
-                </div>
-            `;
+            grid.innerHTML = '<p class="no-results">No team leads found matching your search.</p>';
             return;
         }
         
@@ -529,9 +525,12 @@ function initPocDirectory() {
             const card = document.createElement('div');
             card.className = 'poc-card glass-card';
             card.setAttribute('data-dept', poc.dept);
+            const avatarContent = poc.image 
+                ? `<img src="${poc.image}" alt="${poc.name}" class="poc-img-avatar">` 
+                : `<i class="fa-solid ${poc.avatar}"></i>`;
             card.innerHTML = `
                 <div class="poc-avatar">
-                    <i class="fa-solid ${poc.avatar}"></i>
+                    ${avatarContent}
                 </div>
                 <div class="poc-info">
                     <span class="poc-role-badge">${poc.role}</span>
