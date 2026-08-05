@@ -1475,97 +1475,11 @@ body {
 }
 
 
-/* --- POC GRID & CARDS --- */
+/* --- POC GRID UTILITY --- */
 .poc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.poc-card {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    transition: var(--transition-smooth);
-}
-
-.poc-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(168, 85, 247, 0.25);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.poc-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(0, 242, 254, 0.1) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: var(--color-purple);
-    flex-shrink: 0;
-}
-
-.poc-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.poc-role-badge {
-    font-family: var(--font-heading);
-    font-size: 9px;
-    font-weight: 700;
-    color: var(--color-purple);
-    letter-spacing: 1px;
-    margin-bottom: 0.25rem;
-}
-
-.poc-name {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.poc-desc {
-    color: var(--color-text-muted);
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-}
-
-.poc-contacts {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: auto;
-}
-
-.contact-link {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--color-text-muted);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition-smooth);
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.contact-link:hover {
-    color: #fff;
-    transform: scale(1.15);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.4rem;
 }
 
 .contact-link.phone:hover { background: #3b82f6; border-color: #3b82f6; }
