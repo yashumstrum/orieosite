@@ -78,9 +78,43 @@ function initOrientationLoader() {
             clearInterval(interval);
             setTimeout(() => {
                 loader.classList.add('fade-out');
+                triggerWorldEntranceAnimation();
             }, 350);
         }
     }, intervalTime);
+}
+
+/* ==========================================================================
+   0a. Cinematic Cloud Curtain & Staggered Island Reveal Animation
+   ========================================================================== */
+function triggerWorldEntranceAnimation() {
+    const leftCurtain = document.getElementById('cloud-curtain-left');
+    const rightCurtain = document.getElementById('cloud-curtain-right');
+
+    // 1. Part cloud curtains outward
+    setTimeout(() => {
+        if (leftCurtain) leftCurtain.classList.add('open-left');
+        if (rightCurtain) rightCurtain.classList.add('open-right');
+    }, 150);
+
+    // 2. Staggered float-in animation for each of the 6 islands
+    const revealOrder = [
+        'island-schedule',
+        'island-poc',
+        'island-guidelines',
+        'island-culture',
+        'island-events',
+        'island-faculty'
+    ];
+
+    revealOrder.forEach((id, idx) => {
+        const islandEl = document.getElementById(id);
+        if (islandEl) {
+            setTimeout(() => {
+                islandEl.classList.add('revealed');
+            }, 450 + idx * 170);
+        }
+    });
 }
 
 /* ==========================================================================
