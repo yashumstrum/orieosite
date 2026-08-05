@@ -1180,35 +1180,35 @@ body {
 .poc-card {
     background: #ffffff;
     border: 3px solid #7a4f00;
-    border-radius: 8px;
-    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
     display: flex;
     align-items: center;
-    gap: 1.4rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    gap: 1.6rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .poc-avatar {
-    width: 95px;
-    height: 95px;
+    width: 150px;
+    height: 160px;
     flex-shrink: 0;
-    border-radius: 10px;
+    border-radius: 12px;
     background: #fef08a;
     border: 3px solid #7a4f00;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #854d0e;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .poc-img-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .poc-info {
@@ -1240,16 +1240,16 @@ body {
 }
 
 .contact-link {
-    width: 38px;
-    height: 38px;
-    border-radius: 6px;
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
     background: #f1f5f9;
-    border: 2px solid #7a4f00;
+    border: 2.5px solid #7a4f00;
     color: #1a0a00;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     transition: transform 0.15s, background-color 0.15s;
 }
 
