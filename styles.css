@@ -1180,26 +1180,28 @@ body {
 .poc-card {
     background: #ffffff;
     border: 3px solid #7a4f00;
-    border-radius: 6px;
-    padding: 1.2rem;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.4rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .poc-avatar {
-    width: 64px;
-    height: 64px;
+    width: 95px;
+    height: 95px;
     flex-shrink: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #fef08a;
-    border: 2px solid #ca8a04;
+    border: 3px solid #7a4f00;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: #854d0e;
     overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .poc-img-avatar {
@@ -1209,35 +1211,58 @@ body {
     border-radius: 6px;
 }
 
+.poc-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .poc-role-badge {
     font-family: 'Press Start 2P', monospace;
-    font-size: 0.52rem;
+    font-size: 0.55rem;
     color: #0284c7;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
 }
 
 .poc-name {
     font-family: 'Press Start 2P', monospace;
-    font-size: 0.78rem;
+    font-size: 0.88rem;
     color: #1a0a00;
-    margin-bottom: 0.4rem;
-    line-height: 1.3;
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
 }
 
-.poc-desc {
-    color: #475569;
-    font-size: 0.82rem;
-    line-height: 1.4;
-    margin-bottom: 0.8rem;
+.poc-contacts {
+    display: flex;
+    gap: 0.75rem;
 }
 
 .contact-link {
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
     background: #f1f5f9;
-    border: 2px solid #94a3b8;
-    color: #334155;
+    border: 2px solid #7a4f00;
+    color: #1a0a00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.05rem;
+    transition: transform 0.15s, background-color 0.15s;
+}
+
+.contact-link.phone:hover {
+    background: #e0f2fe;
+    color: #0284c7;
+    transform: scale(1.1);
+}
+
+.contact-link.whatsapp:hover {
+    background: #dcfce7;
+    color: #16a34a;
+    transform: scale(1.1);
 }
 
 /* --- ACCORDION & GUIDELINE CARDS --- */
