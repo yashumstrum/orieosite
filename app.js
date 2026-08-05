@@ -88,13 +88,11 @@ function initOrientationLoader() {
    0a. Cinematic Cloud Curtain & Staggered Island Reveal Animation
    ========================================================================== */
 function triggerWorldEntranceAnimation() {
-    const leftCurtain = document.getElementById('cloud-curtain-left');
-    const rightCurtain = document.getElementById('cloud-curtain-right');
+    const cloudWrapper = document.getElementById('cloud-curtain-wrapper');
 
-    // 1. Part cloud curtains outward
+    // 1. Part multiple cloud clusters to left & right
     setTimeout(() => {
-        if (leftCurtain) leftCurtain.classList.add('open-left');
-        if (rightCurtain) rightCurtain.classList.add('open-right');
+        if (cloudWrapper) cloudWrapper.classList.add('open');
     }, 150);
 
     // 2. Staggered float-in animation for each of the 6 islands

@@ -641,36 +641,58 @@ body {
     100% { transform: translateX(0); }
 }
 
-/* --- CINEMATIC CLOUD CURTAINS & ENTRANCE REVEAL --- */
-.cloud-curtain {
+/* --- MULTIPLE AUTHENTIC MINECRAFT PIXEL CLOUDS ENTRANCE --- */
+.cloud-curtain-wrapper {
     position: fixed;
-    top: 0;
-    width: 58vw;
-    height: 100vh;
-    background: #ffffff;
-    background-image: radial-gradient(circle at 50% 50%, #ffffff 50%, #e2e8f0 100%);
+    inset: 0;
     z-index: 99990;
     pointer-events: none;
-    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
 }
 
-.cloud-curtain.left {
-    left: 0;
-    border-radius: 0 50% 50% 0 / 0 40% 40% 0;
+.mc-entrance-cloud {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 -4px 0 rgba(0,0,0,0.06);
+    transition: transform 1.3s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.3s ease;
 }
 
-.cloud-curtain.right {
-    right: 0;
-    border-radius: 50% 0 0 50% / 40% 0 0 40%;
+/* Left side clouds (parting to the left) */
+.curtain-cloud-1  { width: 450px; height: 110px; top: -20px; left: -50px; }
+.curtain-cloud-2  { width: 540px; height: 140px; top: 75px;  left: -80px; }
+.curtain-cloud-3  { width: 480px; height: 130px; top: 195px; left: -40px; }
+.curtain-cloud-4  { width: 570px; height: 150px; top: 315px; left: -100px; }
+.curtain-cloud-5  { width: 500px; height: 135px; top: 455px; left: -60px; }
+.curtain-cloud-6  { width: 540px; height: 140px; top: 575px; left: -70px; }
+
+/* Right side clouds (parting to the right) */
+.curtain-cloud-7  { width: 490px; height: 120px; top: -30px; right: -60px; }
+.curtain-cloud-8  { width: 550px; height: 140px; top: 85px;  right: -90px; }
+.curtain-cloud-9  { width: 510px; height: 135px; top: 215px; right: -50px; }
+.curtain-cloud-10 { width: 580px; height: 155px; top: 335px; right: -110px; }
+.curtain-cloud-11 { width: 470px; height: 130px; top: 475px; right: -40px; }
+.curtain-cloud-12 { width: 550px; height: 145px; top: 595px; right: -80px; }
+
+/* Parting outwards animation */
+.cloud-curtain-wrapper.open .curtain-cloud-1,
+.cloud-curtain-wrapper.open .curtain-cloud-2,
+.cloud-curtain-wrapper.open .curtain-cloud-3,
+.cloud-curtain-wrapper.open .curtain-cloud-4,
+.cloud-curtain-wrapper.open .curtain-cloud-5,
+.cloud-curtain-wrapper.open .curtain-cloud-6 {
+    transform: translateX(-120vw);
+    opacity: 0;
 }
 
-.cloud-curtain.open-left {
-    transform: translateX(-110%);
-}
-
-.cloud-curtain.open-right {
-    transform: translateX(110%);
+.cloud-curtain-wrapper.open .curtain-cloud-7,
+.cloud-curtain-wrapper.open .curtain-cloud-8,
+.cloud-curtain-wrapper.open .curtain-cloud-9,
+.cloud-curtain-wrapper.open .curtain-cloud-10,
+.cloud-curtain-wrapper.open .curtain-cloud-11,
+.cloud-curtain-wrapper.open .curtain-cloud-12 {
+    transform: translateX(120vw);
+    opacity: 0;
 }
 
 /* --- FLOATING ISLAND STYLING & ENTRANCE ANIMATION --- */
