@@ -2950,6 +2950,33 @@ body.dark-theme .theme-label {
 
 
 /* ==========================================================================
+   OFFICIAL ADYPU LOGO STYLING (TOP LEFT - MAIN PAGE ONLY)
+   ========================================================================== */
+.fixed-top-left-logo-container {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    z-index: 100;
+    pointer-events: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.fixed-top-left-logo-container:hover {
+    transform: scale(1.05);
+}
+
+.official-top-left-logo {
+    height: 52px;
+    width: auto;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 2px solid #7a4f00;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
    OFFICIAL NST LOGO STYLING (TOP RIGHT, LOADER, MODALS)
    ========================================================================== */
 .fixed-top-logo-container {
@@ -3001,6 +3028,14 @@ body.dark-theme .theme-label {
 }
 
 @media (max-width: 768px) {
+    .fixed-top-left-logo-container {
+        top: 12px;
+        left: 12px;
+    }
+    .official-top-left-logo {
+        height: 38px;
+        padding: 4px 8px;
+    }
     .fixed-top-logo-container {
         top: 12px;
         right: 12px;
