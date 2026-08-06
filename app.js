@@ -439,10 +439,25 @@ function initCountdownTimer() {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        daysEl.textContent = String(days).padStart(2, '0');
-        hoursEl.textContent = String(hours).padStart(2, '0');
-        minutesEl.textContent = String(minutes).padStart(2, '0');
-        secondsEl.textContent = String(seconds).padStart(2, '0');
+        const daysStr = String(days).padStart(2, '0');
+        const hoursStr = String(hours).padStart(2, '0');
+        const minutesStr = String(minutes).padStart(2, '0');
+        const secondsStr = String(seconds).padStart(2, '0');
+
+        daysEl.textContent = daysStr;
+        hoursEl.textContent = hoursStr;
+        minutesEl.textContent = minutesStr;
+        secondsEl.textContent = secondsStr;
+
+        const gtkDays = document.getElementById('cd-gtk-days');
+        const gtkHours = document.getElementById('cd-gtk-hours');
+        const gtkMinutes = document.getElementById('cd-gtk-minutes');
+        const gtkSeconds = document.getElementById('cd-gtk-seconds');
+
+        if (gtkDays) gtkDays.textContent = daysStr;
+        if (gtkHours) gtkHours.textContent = hoursStr;
+        if (gtkMinutes) gtkMinutes.textContent = minutesStr;
+        if (gtkSeconds) gtkSeconds.textContent = secondsStr;
     }
     
     updateCountdown();
