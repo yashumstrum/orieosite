@@ -489,6 +489,7 @@ const pocData = [
         dept: "hostel",
         desc: "Incharge of incampus hostel allotments, room desk, and boy's hostel queries.",
         avatar: "fa-building-user",
+        image: "assets/avkash_singh.jpg",
         phone: "+918604651504",
         email: "avkash.singh@newtonschool.co"
     },
@@ -610,6 +611,46 @@ const pocData = [
         image: "assets/prachi_gidwani.jpg",
         phone: "",
         email: "prachi.gidwani@newtonschool.co"
+    },
+    {
+        name: "Anshika Verma",
+        role: "OC EMCEE",
+        dept: "events",
+        desc: "Official Master of Ceremonies leading main stage announcements, event hosting, and crowd anchoring.",
+        avatar: "fa-microphone",
+        image: "assets/anshika_verma.jpg",
+        phone: "",
+        email: "anshika.verma@newtonschool.co"
+    },
+    {
+        name: "Madhav Agarwal",
+        role: "SENIOR-JUNIOR MENTORSHIP",
+        dept: "coordination",
+        desc: "Lead for student onboarding mentorship program, pairing freshers with senior NST guides.",
+        avatar: "fa-hands-holding-child",
+        image: "assets/madhav_agarwal.jpg",
+        phone: "",
+        email: "madhav.agarwal@newtonschool.co"
+    },
+    {
+        name: "Shreya Singh",
+        role: "OC EMCEE",
+        dept: "events",
+        desc: "Official Master of Ceremonies co-hosting stage activities, guest introductions, and ceremonies.",
+        avatar: "fa-microphone-lines",
+        image: "assets/shreya_singh.jpg",
+        phone: "",
+        email: "shreya.singh@newtonschool.co"
+    },
+    {
+        name: "Rameez Rahman",
+        role: "CONTENT LEAD",
+        dept: "coordination",
+        desc: "Lead for orientation content writing, official scripts, social media highlights, and media releases.",
+        avatar: "fa-pen-nib",
+        image: "assets/rameez_rahman.jpg",
+        phone: "",
+        email: "rameez.rahman@newtonschool.co"
     }
 ];
 
