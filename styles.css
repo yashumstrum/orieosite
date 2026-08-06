@@ -58,12 +58,17 @@ body {
 
 /* --- Orientation Loading Screen (Minecraft Blocky Theme) --- */
 /* ====================================================
-   LOADING SCREEN – Funky Minecraft Portal Style
+   LOADING SCREEN – Minecraft Overworld Style
    ==================================================== */
 .loader-overlay {
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at center, #2e1065 0%, #1e1b4b 40%, #0f172a 100%);
+    background: linear-gradient(180deg,
+        #1565c0 0%,
+        #1976d2 20%,
+        #42a5f5 55%,
+        #64b5f6 75%,
+        #bbdefb 100%);
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -80,80 +85,43 @@ body {
     pointer-events: none;
 }
 
-/* Pulsing animated purple Minecraft nether-portal ring */
-.loader-portal-ring {
+/* Floating background clouds on loader */
+.loader-overlay::before,
+.loader-overlay::after {
+    content: '';
     position: absolute;
-    width: 650px;
-    height: 650px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #a855f7, #6366f1, #ec4899, #8b5cf6, #a855f7);
-    filter: blur(50px);
-    opacity: 0.45;
-    animation: spinPortal 12s linear infinite;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
     pointer-events: none;
 }
-
-@keyframes spinPortal {
-    0% { transform: rotate(0deg) scale(0.95); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    100% { transform: rotate(360deg) scale(0.95); }
+.loader-overlay::before {
+    width: 260px; height: 50px;
+    top: 12%; left: 8%;
+    animation: floatCloud 20s linear infinite;
+}
+.loader-overlay::after {
+    width: 180px; height: 38px;
+    top: 20%; right: 10%;
+    animation: floatCloud 26s linear infinite reverse;
 }
 
-/* Floating retro pixel items drifting in the background */
-.loader-floating-pixels {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.pixel-item {
-    position: absolute;
-    font-size: 2rem;
-    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
-    animation: floatItem 4s ease-in-out infinite alternate;
-}
-
-.item-pickaxe { top: 15%; left: 12%; animation-delay: 0s; }
-.item-diamond { top: 20%; right: 14%; animation-delay: 1s; }
-.item-sword   { bottom: 18%; left: 15%; animation-delay: 2s; }
-.item-star    { bottom: 22%; right: 16%; animation-delay: 1.5s; }
-
-@keyframes floatItem {
-    0% { transform: translateY(0px) rotate(0deg) scale(1); }
-    100% { transform: translateY(-25px) rotate(15deg) scale(1.15); }
-}
-
-/* Main Loading Card — Funky Animated Minecraft Gold Block */
+/* Main Loading Card — Minecraft Gold Block Style */
 .loader-content {
     text-align: center;
     width: 90%;
-    max-width: 490px;
-    padding: 2.4rem 2.2rem 2rem;
+    max-width: 480px;
+    padding: 2.2rem 2rem 1.8rem;
     background: #f9c74f;
     box-shadow:
-        6px 0   0 0 #7a4f00,
-        -6px 0  0 0 #7a4f00,
-        0  6px  0 0 #7a4f00,
-        0 -6px  0 0 #7a4f00,
-        inset 4px 4px 0 0 rgba(255,255,220,0.8),
-        inset -4px -4px 0 0 rgba(100,60,0,0.4),
-        0 0 50px rgba(168, 85, 247, 0.6);
+        5px 0   0 0 #7a4f00,
+        -5px 0  0 0 #7a4f00,
+        0  5px  0 0 #7a4f00,
+        0 -5px  0 0 #7a4f00,
+        inset 3px 3px 0 0 rgba(255,255,220,0.7),
+        inset -3px -3px 0 0 rgba(100,60,0,0.35),
+        0 15px 40px rgba(0,0,0,0.25);
     position: relative;
     z-index: 2;
-    animation: funkyCardPulse 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes funkyCardPulse {
-    0% { transform: scale(1); box-shadow: 6px 0 0 0 #7a4f00, -6px 0 0 0 #7a4f00, 0 6px 0 0 #7a4f00, 0 -6px 0 0 #7a4f00, inset 4px 4px 0 0 rgba(255,255,220,0.8), inset -4px -4px 0 0 rgba(100,60,0,0.4), 0 0 40px rgba(168, 85, 247, 0.5); }
-    100% { transform: scale(1.02); box-shadow: 6px 0 0 0 #7a4f00, -6px 0 0 0 #7a4f00, 0 6px 0 0 #7a4f00, 0 -6px 0 0 #7a4f00, inset 4px 4px 0 0 rgba(255,255,220,0.8), inset -4px -4px 0 0 rgba(100,60,0,0.4), 0 0 70px rgba(236, 72, 153, 0.7); }
-}
-
-.loader-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
 }
 
 .loader-badge {
@@ -161,45 +129,37 @@ body {
     background: #7a4f00;
     color: #f9c74f;
     font-family: 'Press Start 2P', monospace;
-    font-size: 0.68rem;
-    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1.2rem;
     letter-spacing: 2px;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.3);
-}
-
-.loader-avatar-bounce {
-    font-size: 1.8rem;
-    animation: iconBounce 0.8s ease-in-out infinite alternate;
-}
-
-@keyframes iconBounce {
-    0% { transform: translateY(0) rotate(-10deg); }
-    100% { transform: translateY(-10px) rotate(10deg); }
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.2);
 }
 
 .loader-title {
     font-family: 'Press Start 2P', monospace;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: #1a0a00;
-    margin: 0 0 0.4rem 0;
+    margin: 0 0 0.35rem 0;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.4);
     line-height: 1.4;
 }
 
 .loader-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 1.8px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     color: #5a3000;
     margin-bottom: 1.6rem;
+    opacity: 0.85;
 }
 
 /* XP-Style Green Progress Bar */
 .loader-progress-wrapper {
     width: 100%;
-    height: 18px;
+    height: 16px;
     background: #2d1a00;
     border: none;
     box-shadow:
@@ -207,7 +167,7 @@ body {
         -3px 0 0 0 #7a4f00,
         0  3px 0 0 #7a4f00,
         0 -3px 0 0 #7a4f00,
-        inset 2px 2px 0 0 rgba(0,0,0,0.5);
+        inset 2px 2px 0 0 rgba(0,0,0,0.4);
     overflow: hidden;
     margin-bottom: 0.9rem;
     padding: 2px;
@@ -217,20 +177,13 @@ body {
     height: 100%;
     width: 0%;
     background: linear-gradient(
-        90deg,
+        180deg,
         #a8ff5e 0%,
-        #00ffcc 50%,
-        #a8ff5e 100%
+        #78cc2e 50%,
+        #5aad1c 100%
     );
-    background-size: 200% 100%;
-    animation: gradientShift 1.5s linear infinite;
     transition: width 0.12s linear;
-    box-shadow: inset 0 3px 0 rgba(255,255,255,0.4);
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    box-shadow: inset 0 3px 0 rgba(255,255,255,0.35);
 }
 
 .loader-status {
@@ -247,21 +200,20 @@ body {
 .loader-status-text { opacity: 0.9; }
 
 .loader-percentage {
-    color: #15803d;
+    color: #2d6e00;
     font-weight: 700;
 }
 
 /* Minecraft Tip box */
 .loader-tip {
-    background: rgba(0,0,0,0.08);
-    border-left: 4px solid #16a34a;
-    padding: 0.6rem 0.9rem;
+    background: rgba(0,0,0,0.1);
+    border-left: 4px solid #5aad1c;
+    padding: 0.55rem 0.8rem;
     text-align: left;
     font-family: var(--font-mono);
-    font-size: 0.63rem;
+    font-size: 0.6rem;
     color: #2d1a00;
     line-height: 1.5;
-    border-radius: 0 4px 4px 0;
 }
 
 .tip-label {
