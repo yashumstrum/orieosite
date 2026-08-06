@@ -605,10 +605,10 @@ const pocData = [
     },
     {
         name: "Prachi Gidwani",
-        role: "OC DECOR",
-        dept: "creative",
-        desc: "Co-lead for entrance decor, art props, floral arrangements, and stage design.",
-        avatar: "fa-palette",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads documentation, verification records, and orientation archives.",
+        avatar: "fa-file-signature",
         image: "assets/prachi_gidwani.jpg",
         phone: "",
         email: "prachi.gidwani@newtonschool.co"
