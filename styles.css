@@ -2411,43 +2411,47 @@ body.dark-theme .theme-label {
         letter-spacing: 2px;
     }
 
-    /* Islands: switch to absolute→relative grid */
+    /* Mobile Universe & Floating 3D Islands (Matching Laptop Viewport) */
     .tekron-universe {
-        min-height: auto;
-        padding: 1.5rem 0 2rem;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
     }
 
     .islands-container {
-        height: auto !important;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem 1.2rem;
+        position: relative;
         width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0 1rem;
+        height: 100vh;
+        display: block !important;
     }
 
     .island-wrapper {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
-        width: 100% !important;
-        animation: float-y-2 6s ease-in-out infinite !important;
-        background: rgba(255,255,255,0.55);
-        border: 3px solid rgba(255,255,255,0.9);
-        border-radius: 12px;
-        padding: 1rem 0.8rem 0.6rem;
-        box-shadow: 0 6px 20px rgba(15,23,42,0.12);
-        backdrop-filter: blur(6px);
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
     }
 
     .island-wrapper:hover {
-        transform: translateY(-8px) scale(1.02) !important;
-        border-color: #0284c7;
-        box-shadow: 0 12px 32px rgba(2,132,199,0.25);
+        border-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* Scale & position islands gracefully on mobile screens */
+    #island-schedule    { width: 145px !important; top: 12% !important; left: 1% !important; }
+    #island-poc         { width: 140px !important; top: 4% !important; left: 50% !important; }
+    #island-guidelines  { width: 145px !important; top: 12% !important; right: 1% !important; }
+    #island-culture     { width: 145px !important; top: 58% !important; left: 2% !important; }
+    #island-events      { width: 150px !important; top: 50% !important; left: 50% !important; }
+    #island-faculty     { width: 145px !important; top: 58% !important; right: 2% !important; }
+
+    .island-pill-label {
+        font-size: 0.38rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-top: -0.4rem !important;
+        position: relative !important;
     }
 
     .island-img {
@@ -2455,14 +2459,6 @@ body.dark-theme .theme-label {
         width: auto;
         margin: 0 auto;
         display: block;
-    }
-
-    .island-pill-label {
-        margin-top: 0.6rem;
-        width: auto;
-        text-align: center;
-        position: static !important;
-        transform: none !important;
     }
 
     /* Hide extra clouds */
@@ -2480,7 +2476,7 @@ body.dark-theme .theme-label {
     .competitions-grid { grid-template-columns: 1fr; }
 }
 
-/* ---- MOBILE (≤ 768px) ---- */
+/* ---- MOBILE & SMALL PHONES ---- */
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
@@ -2491,38 +2487,28 @@ body.dark-theme .theme-label {
     }
 
     .welcome-top-text {
-        font-size: 0.6rem;
-        padding: 0.45rem 1rem;
-        letter-spacing: 1.5px;
+        font-size: 0.52rem;
+        padding: 0.4rem 0.9rem;
+        letter-spacing: 1px;
     }
 
     .app-container {
-        padding: 0.8rem 0.8rem;
-        padding-top: 60px; /* space for fixed heading */
+        padding: 0.5rem;
     }
 
-    /* 2-column island grid on mobile */
-    .islands-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 0 0.5rem;
-    }
-
-    .island-img {
-        max-height: 120px;
-    }
+    /* Floating 3D Islands Mobile Scaling */
+    #island-schedule    { width: 110px !important; top: 12% !important; left: 1% !important; }
+    #island-poc         { width: 105px !important; top: 5% !important; left: 50% !important; }
+    #island-guidelines  { width: 110px !important; top: 12% !important; right: 1% !important; }
+    #island-culture     { width: 110px !important; top: 56% !important; left: 2% !important; }
+    #island-events      { width: 115px !important; top: 48% !important; left: 50% !important; }
+    #island-faculty     { width: 110px !important; top: 56% !important; right: 2% !important; }
 
     .island-pill-label {
-        font-size: 0.48rem;
-        padding: 0.35rem 0.7rem;
+        font-size: 0.32rem !important;
+        padding: 0.2rem 0.4rem !important;
+        margin-top: -0.3rem !important;
     }
-
-    /* Minecraft cloud: keep only 3, smaller */
-    .minecraft-cloud.cloud-1 { width: 100px; height: 22px; }
-    .minecraft-cloud.cloud-2 { width: 120px; height: 26px; }
-    .minecraft-cloud.cloud-3 { width: 80px; height: 18px; }
-    .minecraft-cloud.cloud-4,
-    .minecraft-cloud.cloud-5 { display: none; }
 
     /* Modals: full width, proper padding */
     .modal-content {
@@ -2534,7 +2520,7 @@ body.dark-theme .theme-label {
     }
 
     .modal-title {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .modal-header-inner {
@@ -2549,8 +2535,8 @@ body.dark-theme .theme-label {
     }
 
     .tab-btn {
-        font-size: 0.7rem;
-        padding: 0.5rem 0.8rem;
+        font-size: 0.65rem;
+        padding: 0.4rem 0.7rem;
     }
 
     /* Timeline compact */
@@ -2568,58 +2554,13 @@ body.dark-theme .theme-label {
         grid-template-columns: 1fr;
     }
 
-    /* Sound button: smaller */
-    .sound-btn {
-        bottom: 16px;
-        right: 16px;
-        padding: 8px 10px;
-        min-width: 52px;
+    .sound-btn, .theme-btn {
+        padding: 6px 8px;
+        min-width: 48px;
     }
 
-    .sound-icon { font-size: 1.2rem; }
-    .sound-label { font-size: 0.32rem; }
-}
-
-/* ---- SMALL PHONES (≤ 480px) ---- */
-@media (max-width: 480px) {
-    .welcome-top-text {
-        font-size: 0.5rem;
-        letter-spacing: 1px;
-        padding: 0.4rem 0.8rem;
-    }
-
-    /* Single column on very small phones */
-    .islands-container {
-        grid-template-columns: 1fr;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
-    .island-img {
-        max-height: 160px;
-    }
-
-    .island-wrapper {
-        padding: 1.2rem 1rem 0.8rem;
-    }
-
-    .modal-content {
-        padding: 1.2rem 0.8rem;
-        max-height: 92vh;
-    }
-
-    .modal-title {
-        font-size: 0.9rem;
-    }
-
-    /* Loader responsive */
-    .loader-title {
-        font-size: 1.2rem;
-    }
-
-    .loader-subtitle {
-        font-size: 0.5rem;
-    }
+    .sound-icon, .theme-icon { font-size: 1.1rem; }
+    .sound-label, .theme-label { font-size: 0.3rem; }
 }
 
 
