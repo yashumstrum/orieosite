@@ -779,6 +779,7 @@ const pocData = [
         dept: "coordination",
         desc: "Co-leads event documentation, schedules, verification slips, and record archives.",
         avatar: "fa-file-signature",
+        image: "assets/deepak_kumar.jpg",
         phone: "",
         email: "deepak.kumar@newtonschool.co"
     }
