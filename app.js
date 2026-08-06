@@ -504,11 +504,12 @@ const pocData = [
         email: "sunny.pandey@newtonschool.co"
     },
     {
-        name: "Rishi",
+        name: "Rishi Bhardwaj",
         role: "YS 1 HOSTEL LEAD",
         dept: "hostel",
         desc: "Incharge of YS 1 hostel accommodations, check-ins, and student comfort.",
         avatar: "fa-bed",
+        image: "assets/rishi_bhardwaj.jpg",
         phone: "+918815704939",
         email: "rishi@newtonschool.co"
     },
@@ -691,6 +692,46 @@ const pocData = [
         image: "assets/shriyash_deshmukh.jpg",
         phone: "",
         email: "shriyash.deshmukh@newtonschool.co"
+    },
+    {
+        name: "Adarsh Lekhwani",
+        role: "OC DECOR LEAD",
+        dept: "creative",
+        desc: "Lead for campus decor planning, stage setups, entrance artwork, and visual styling.",
+        avatar: "fa-paintbrush",
+        image: "assets/adarsh_lekhwani.jpg",
+        phone: "",
+        email: "adarsh.lekhwani@newtonschool.co"
+    },
+    {
+        name: "Ishita Chaurasiya",
+        role: "OC DECOR LEAD",
+        dept: "creative",
+        desc: "Lead for entrance decor, theme installations, floral art, and stage ambiance.",
+        avatar: "fa-palette",
+        image: "assets/ishita_chaurasiya.jpg",
+        phone: "",
+        email: "ishita.chaurasiya@newtonschool.co"
+    },
+    {
+        name: "Yash Kumar",
+        role: "OC EMCEE",
+        dept: "events",
+        desc: "Official Master of Ceremonies co-hosting stage activities and guest announcements.",
+        avatar: "fa-microphone",
+        image: "assets/yash_kumar.jpg",
+        phone: "",
+        email: "yash.kumar@newtonschool.co"
+    },
+    {
+        name: "Mahith Chenna",
+        role: "OC LEAD",
+        dept: "coordination",
+        desc: "Overall Orientation Committee Lead supervising team execution, schedules, and operations.",
+        avatar: "fa-user-tie",
+        image: "assets/mahith_chenna.jpg",
+        phone: "",
+        email: "mahith.chenna@newtonschool.co"
     }
 ];
 
