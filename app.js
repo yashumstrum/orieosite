@@ -629,14 +629,14 @@ const pocData = [
         email: "kavya.arora@newtonschool.co"
     },
     {
-        name: "Yasiq Iqbal",
+        name: "Yasir Iqbal",
         role: "OC STUDENT LEAD ACTIVITIES",
         dept: "events",
         desc: "Student lead for icebreaker activities, student engagement, and interactive campus games.",
         avatar: "fa-champagne-glasses",
         image: "assets/yasiq_iqbal.jpg",
         phone: "",
-        email: "yasiq.iqbal@newtonschool.co"
+        email: "yasir.iqbal@newtonschool.co"
     },
     {
         name: "Mridul Bansal",
