@@ -1306,11 +1306,9 @@ body {
 }
 
 
-/* --- CAMPUS MAP TAB SPLIT --- */
-.map-split-view {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 1.5rem;
+/* --- CAMPUS MAP TAB --- */
+.map-single-view {
+    width: 100%;
 }
 
 .campus-map-container {
@@ -1319,88 +1317,23 @@ body {
     border-radius: 12px;
     overflow: hidden;
     box-shadow:
-        4px 0   0 0 #7a4f00,
-        -4px 0  0 0 #7a4f00,
-        0  4px  0 0 #7a4f00,
-        0 -4px  0 0 #7a4f00,
-        inset 2px 2px 0 0 rgba(255,255,220,0.6);
+        5px 0   0 0 #7a4f00,
+        -5px 0  0 0 #7a4f00,
+        0  5px  0 0 #7a4f00,
+        0 -5px  0 0 #7a4f00,
+        inset 3px 3px 0 0 rgba(255,255,220,0.65),
+        inset -3px -3px 0 0 rgba(100,60,0,0.4);
     background: #1e1b4b;
 }
 
 .campus-aerial-img {
     width: 100%;
-    height: 100%;
-    min-height: 340px;
-    object-fit: cover;
+    height: auto;
+    max-height: 72vh;
+    object-fit: contain;
     display: block;
     border-radius: 8px;
-    filter: brightness(0.95) contrast(1.05);
 }
-
-/* Interactive Pins / Hotspots over aerial photo */
-.map-hotspot {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 10;
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.map-hotspot:hover,
-.map-hotspot.active {
-    transform: scale(1.15);
-    z-index: 20;
-}
-
-.hotspot-pin {
-    width: 28px;
-    height: 28px;
-    background: #0284c7;
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.75rem;
-    box-shadow: 0 0 12px rgba(2, 132, 199, 0.8), 0 4px 8px rgba(0,0,0,0.4);
-    border: 2px solid #ffffff;
-    animation: pinPulse 2s infinite alternate;
-}
-
-.map-hotspot:hover .hotspot-pin,
-.map-hotspot.active .hotspot-pin {
-    background: #ef4444;
-    box-shadow: 0 0 16px rgba(239, 68, 68, 0.9), 0 4px 10px rgba(0,0,0,0.5);
-}
-
-@keyframes pinPulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.12); }
-}
-
-.hotspot-label {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 0.42rem;
-    background: rgba(15, 23, 42, 0.88);
-    color: #ffffff;
-    padding: 4px 7px;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    white-space: nowrap;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-/* Precise Hotspot Pin Positions over 3D Aerial Map */
-.hotspot-nst        { top: 32%; right: 12%; }
-.hotspot-soe        { top: 12%; left: 10%; }
-.hotspot-football   { top: 16%; left: 32%; }
-.hotspot-auditorium { top: 76%; left: 38%; }
-.hotspot-hostel     { top: 62%; right: 15%; }
-.hotspot-cafe       { top: 46%; right: 16%; }
-.hotspot-gate       { bottom: 5%; right: 38%; }
 
 .map-landmark-info {
     background: rgba(255, 255, 255, 0.02);
