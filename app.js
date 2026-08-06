@@ -751,17 +751,22 @@ const landmarkDetails = {
     "lm-sports": {
         title: "ADYPU Arena & Sports Plaza",
         body: "Sports complex featuring outdoor courts (tennis, basketball), indoor table tennis hubs, and grass fields.",
-        details: "<strong>Orientation Activity:</strong> Day 3 Team Building matches and recreational sports icebreakers."
+        details: "<strong>Orientation Activity:</strong> Day 3 Team Building matches and recreational sports icebreakers"
     },
     "lm-hostel": {
-        title: "NST Residential Hostel Blocks",
-        body: "Modern residential housing for student scholars. Equipped with study spaces, Wi-Fi hubs, laundry services, and common lounge rooms.",
-        details: "<strong>Orientation Activity:</strong> Day 7 checkout check-in updates and settling."
+        title: "NST Residential Hostel Blocks (Boys & Girls)",
+        body: "Modern residential housing for student scholars. Equipped with study spaces, high-speed Wi-Fi hubs, laundry services, and common lounge rooms.",
+        details: "<strong>Orientation Activity:</strong> Day 7 checkout, check-in room key allocation, and settling into campus life."
+    },
+    "lm-gate": {
+        title: "ADYPU Main Gate (DY Patil University Rd)",
+        body: "Primary entry point to the 100+ acre campus. Security checkpoint, bus drop-off point, and visitor registry.",
+        details: "<strong>Orientation Activity:</strong> Welcoming desk for parents and shuttle buses on Day 1."
     }
 };
 
 function initCampusMapInteractions() {
-    const landmarks = document.querySelectorAll('.map-landmark');
+    const hotspots = document.querySelectorAll('.map-hotspot');
     const infoDisplay = document.getElementById('landmark-info-display');
     const tabSched = document.getElementById('btn-tab-sched');
     const tabMap = document.getElementById('btn-tab-map');
@@ -775,44 +780,13 @@ function initCampusMapInteractions() {
         if (!data) return;
         
         infoDisplay.innerHTML = `
-            <h3 class="info-title" style="color: var(--color-cyan)">${data.title}</h3>
-            <p class="info-body">${data.body}</p>
-            <div class="info-details-box">
+            <h3 class="info-title" style="color: var(--color-cyan); font-family: 'Press Start 2P', monospace; font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.8rem;">${data.title}</h3>
+            <p class="info-body" style="font-size: 0.88rem; line-height: 1.6; color: #475569; margin-bottom: 1rem;">${data.body}</p>
+            <div class="info-details-box" style="background: rgba(2, 132, 199, 0.08); border-left: 3px solid #0284c7; padding: 0.8rem 1rem; border-radius: 0 6px 6px 0; font-size: 0.82rem; color: #0f172a;">
                 ${data.details}
             </div>
         `;
         
-        // Highlight active landmark
-        landmarks.forEach(lm => lm.classList.remove('highlighted'));
-        const targetNode = document.getElementById(landmarkId);
-        if (targetNode) {
-            targetNode.classList.add('highlighted');
-        }
-    }
-    
-    landmarks.forEach(lm => {
-        lm.addEventListener('click', () => {
-            const id = lm.getAttribute('id');
-            showLandmarkInfo(id);
-        });
-    });
-    
-    // Timeline Highlight triggers
-    const highlightTriggers = document.querySelectorAll('.highlight-trigger');
-    highlightTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Avoid triggering timeline panel click
-            const venue = trigger.getAttribute('data-target-venue');
-            const landmarkId = `lm-${venue}`;
-            
-            // Switch tabs to Campus Map
-            if (tabSched && tabMap && tabSchedList && tabCampusMap) {
-                tabSched.classList.remove('active');
-                tabMap.classList.add('active');
-                tabSchedList.classList.remove('active');
-                tabCampusMap.classList.add('active');
-            }
-            
             // Show corresponding landmark info & highlight on map
             setTimeout(() => {
                 showLandmarkInfo(landmarkId);

@@ -230,55 +230,45 @@
                 <!-- Tab 2: Map Content -->
                 <div class="tab-content" id="tab-campus-map">
                     <div class="map-split-view">
-                        <!-- ADYPU Campus SVG -->
-                        <div class="campus-svg-wrapper">
-                            <svg id="adypu-campus-map" viewBox="0 0 600 400">
-                                <rect width="600" height="400" fill="#1b203a" rx="10"/>
-                                <path d="M 0,300 C 150,280 300,340 450,290 C 500,270 550,300 600,280" fill="none" stroke="#252c54" stroke-width="60" opacity="0.3"/>
-                                <path d="M 100,0 C 80,150 140,250 90,400" fill="none" stroke="#252c54" stroke-width="40" opacity="0.3"/>
-                                
-                                <g class="map-landmark" id="lm-admin">
-                                    <rect x="50" y="50" width="70" height="50" rx="5" class="lm-building-shape"/>
-                                    <text x="85" y="80" class="lm-text">ADMIN</text>
-                                    <circle cx="85" cy="50" r="6" class="lm-status-dot"/>
-                                </g>
-                                
-                                <g class="map-landmark" id="lm-academic">
-                                    <rect x="200" y="60" width="90" height="60" rx="5" class="lm-building-shape"/>
-                                    <text x="245" y="95" class="lm-text">ACADEMIC</text>
-                                    <circle cx="245" cy="60" r="6" class="lm-status-dot"/>
-                                </g>
+                        <!-- ADYPU Aerial Campus Map Image with Interactive Hotspots -->
+                        <div class="campus-map-container">
+                            <img src="assets/campus_map_aerial.jpg" alt="Newton School of Technology ADYPU Campus Aerial Map" class="campus-aerial-img">
+                            
+                            <!-- Interactive Pins / Hotspots over aerial photo -->
+                            <div class="map-hotspot hotspot-nst" data-landmark="lm-academic">
+                                <span class="hotspot-pin"><i class="fa-solid fa-graduation-cap"></i></span>
+                                <span class="hotspot-label">Newton School of Tech</span>
+                            </div>
 
-                                <g class="map-landmark" id="lm-library">
-                                    <rect x="360" y="80" width="80" height="50" rx="5" class="lm-building-shape"/>
-                                    <text x="400" y="110" class="lm-text">LIBRARY</text>
-                                    <circle cx="400" cy="80" r="6" class="lm-status-dot"/>
-                                </g>
+                            <div class="map-hotspot hotspot-soe" data-landmark="lm-admin">
+                                <span class="hotspot-pin"><i class="fa-solid fa-building-columns"></i></span>
+                                <span class="hotspot-label">School of Engineering</span>
+                            </div>
 
-                                <g class="map-landmark" id="lm-auditorium">
-                                    <rect x="70" y="200" width="90" height="55" rx="5" class="lm-building-shape"/>
-                                    <text x="115" y="232" class="lm-text">AUDITORIUM</text>
-                                    <circle cx="115" cy="200" r="6" class="lm-status-dot"/>
-                                </g>
+                            <div class="map-hotspot hotspot-football" data-landmark="lm-sports">
+                                <span class="hotspot-pin"><i class="fa-solid fa-futbol"></i></span>
+                                <span class="hotspot-label">SOE Football Ground</span>
+                            </div>
 
-                                <g class="map-landmark" id="lm-cafeteria">
-                                    <rect x="220" y="220" width="70" height="50" rx="5" class="lm-building-shape"/>
-                                    <text x="255" y="250" class="lm-text">MESS/CAFE</text>
-                                    <circle cx="255" cy="220" r="6" class="lm-status-dot"/>
-                                </g>
+                            <div class="map-hotspot hotspot-auditorium" data-landmark="lm-auditorium">
+                                <span class="hotspot-pin"><i class="fa-solid fa-masks-theater"></i></span>
+                                <span class="hotspot-label">Auditorium</span>
+                            </div>
 
-                                <g class="map-landmark" id="lm-sports">
-                                    <rect x="420" y="200" width="110" height="60" rx="5" class="lm-building-shape"/>
-                                    <text x="475" y="235" class="lm-text">SPORTS ARENA</text>
-                                    <circle cx="475" cy="200" r="6" class="lm-status-dot"/>
-                                </g>
+                            <div class="map-hotspot hotspot-hostel" data-landmark="lm-hostel">
+                                <span class="hotspot-pin"><i class="fa-solid fa-hotel"></i></span>
+                                <span class="hotspot-label">Boys & Girls Hostels</span>
+                            </div>
 
-                                <g class="map-landmark" id="lm-hostel">
-                                    <rect x="250" y="310" width="130" height="50" rx="5" class="lm-building-shape"/>
-                                    <text x="315" y="340" class="lm-text">HOSTEL BLOCKS</text>
-                                    <circle cx="315" cy="310" r="6" class="lm-status-dot"/>
-                                </g>
-                            </svg>
+                            <div class="map-hotspot hotspot-cafe" data-landmark="lm-cafeteria">
+                                <span class="hotspot-pin"><i class="fa-solid fa-utensils"></i></span>
+                                <span class="hotspot-label">DCAFE & Cafe</span>
+                            </div>
+
+                            <div class="map-hotspot hotspot-gate" data-landmark="lm-gate">
+                                <span class="hotspot-pin"><i class="fa-solid fa-door-open"></i></span>
+                                <span class="hotspot-label">Main Gate</span>
+                            </div>
                         </div>
                         <div class="map-landmark-info" id="landmark-info-display">
                             <h3 class="info-title">ADYPU Campus Map</h3>
