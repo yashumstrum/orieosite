@@ -379,6 +379,26 @@ function initModalControls() {
         }
     });
     
+    // Tab switching controls
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const container = btn.closest('.modal-content');
+            if (!container) return;
+            
+            const targetTabId = btn.getAttribute('data-tab');
+            if (!targetTabId) return;
+            
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            btn.classList.add('active');
+            const targetTab = document.getElementById(targetTabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        });
+    });
+
     function closeAllModals() {
         modals.forEach(m => m.classList.remove('active'));
         document.body.style.overflow = ''; // Unlock scrolling
