@@ -1049,11 +1049,11 @@ body {
 }
 
 .tab-content {
-    display: none;
+    display: none !important;
 }
 
 .tab-content.active {
-    display: block;
+    display: block !important;
 }
 
 /* --- MINECRAFT PARCHMENT TIMELINE ITEMS --- */
