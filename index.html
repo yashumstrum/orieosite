@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORIENTATION 2026 | Newton School of Technology</title>
+    <meta name="description" content="Welcome to NST Junior Orientation 2026 at Newton School of Technology, ADYPU Pune. Explore the interactive 3D voxel map, check orientation schedule, contact POCs, view student gallery, and meet sponsors.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- FIXED TOP-LEFT ADYPU OFFICIAL LOGO BANNER (MAIN PAGE ONLY) -->
+    <div class="fixed-top-left-logo-container">
+        <img src="assets/adypu_logo.png" alt="Ajeenkya DY Patil University Logo" class="official-top-left-logo">
+    </div>
+
+    <!-- FIXED TOP-RIGHT NST OFFICIAL LOGO BANNER -->
+    <div class="fixed-top-logo-container">
+        <img src="assets/nst_logo.png" alt="Newton School of Technology Logo" class="official-top-logo">
+    </div>
+
+    <!-- ORIENTATION LOADING SCREEN -->
+    <div id="orientation-loader" class="loader-overlay">
+        <div class="loader-content">
+            <div class="loader-brand-img-wrapper">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="loader-nst-logo">
+            </div>
+            <div class="loader-badge">
+                <span class="loader-logo-text">NST 2026</span>
+            </div>
+            <h1 class="loader-title">ORIENTATION 2026</h1>
+            <p class="loader-subtitle">NEWTON SCHOOL OF TECHNOLOGY • ADYPU PUNE</p>
+            
+            <div class="loader-progress-wrapper">
+                <div class="loader-progress-bar" id="loader-bar"></div>
+            </div>
+            
+            <div class="loader-status">
+                <span class="loader-status-text" id="loader-status-text">GENERATING MINECRAFT WORLD...</span>
+                <span class="loader-percentage" id="loader-percent">0%</span>
+            </div>
+
+            <div class="loader-tip">
+                <span class="tip-label">MINECRAFT TIP:</span> <span id="loader-tip-text">Check the Schedule island for ADYPU campus events!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D MINECRAFT CLOUD FLY-THROUGH ENTRANCE CANVAS -->
+    <canvas id="cloud-warp-canvas"></canvas>
+
+    <!-- Background Space Starfield -->
+    <canvas id="stars-canvas"></canvas>
+
+    <div class="app-container">
+        <!-- TOP WELCOME HEADING -->
+        <div class="welcome-top-heading">
+            <span class="welcome-top-text">WELCOME BATCH OF 2030</span>
+        </div>
+
+        <!-- MAIN INTERACTIVE VOXEL UNIVERSE -->
+        <main class="tekron-universe" id="main-universe-section">
+            <!-- White Minecraft Floating Voxel Clouds -->
+            <div class="minecraft-cloud cloud-1"></div>
+            <div class="minecraft-cloud cloud-2"></div>
+            <div class="minecraft-cloud cloud-3"></div>
+            <div class="minecraft-cloud cloud-4"></div>
+            <div class="minecraft-cloud cloud-5"></div>
+            <div class="minecraft-cloud cloud-6"></div>
+            <div class="minecraft-cloud cloud-7"></div>
+            <div class="minecraft-cloud cloud-8"></div>
+            <div class="minecraft-cloud cloud-9"></div>
+            <div class="minecraft-cloud cloud-10"></div>
+
+            <!-- Interactive Islands Grid (6 Orientation Sections) -->
+            <div class="islands-container six-islands">
+                <!-- Island 1: Schedule & Map -->
+                <div class="island-wrapper active-island" id="island-schedule" data-modal="modal-schedule">
+                    <div class="island-img-container">
+                        <img src="assets/schedule.png" alt="Schedule and Map" class="island-img">
+                    </div>
+                    <div class="island-pill-label">SCHEDULE & MAP</div>
+                </div>
+
+                <!-- Island 2: LEADS -->
+                <div class="island-wrapper active-island" id="island-poc" data-modal="modal-poc">
+                    <div class="island-img-container">
+                        <img src="assets/poc.png" alt="Leads" class="island-img">
+                    </div>
+                    <div class="island-pill-label">LEADS</div>
+                </div>
+
+                <!-- Island 3: Guidelines -->
+                <div class="island-wrapper active-island" id="island-guidelines" data-modal="modal-guidelines">
+                    <div class="island-img-container">
+                        <img src="assets/guidelines.png" alt="Guidelines" class="island-img">
+                    </div>
+                    <div class="island-pill-label">GUIDELINES</div>
+                </div>
+
+                <!-- Island 4: Culture -->
+                <div class="island-wrapper active-island" id="island-culture" data-modal="modal-culture">
+                    <div class="island-img-container">
+                        <img src="assets/culture.png" alt="Culture" class="island-img">
+                    </div>
+                    <div class="island-pill-label">CULTURE</div>
+                </div>
+
+                <!-- Island 5: Get to Know (LOCKED) -->
+                <div class="island-wrapper active-island locked-bld" id="island-faculty" data-modal="modal-faculty">
+                    <div class="island-img-container">
+                        <img src="assets/faculty.png" alt="Get to Know" class="island-img">
+                    </div>
+                    <div class="island-pill-label lock-label"><i class="fa-solid fa-lock"></i> GET TO KNOW</div>
+                </div>
+
+                <!-- Island 6: Upcoming Events (LOCKED) -->
+                <div class="island-wrapper active-island locked-bld" id="island-events" data-modal="modal-locked">
+                    <div class="island-img-container">
+                        <img src="assets/events.png" alt="Upcoming Events" class="island-img">
+                    </div>
+                    <div class="island-pill-label lock-label"><i class="fa-solid fa-lock"></i> UPCOMING EVENTS</div>
+                </div>
+            </div>
+        </main>
+
+
+
+    <!-- FLOATING CONTROLS: MUSIC, THEME & INSTAGRAM TOGGLE -->
+    <div class="floating-controls">
+        <a href="https://www.instagram.com/insider.at.nst?igsh=aWc2MHNtd3dyNXZv&utm_source=qr" target="_blank" rel="noopener noreferrer" id="insta-link-btn" class="insta-btn" aria-label="NST Instagram Insider" title="Insider at NST Instagram">
+            <span class="insta-icon"><i class="fa-brands fa-instagram"></i></span>
+            <span class="insta-label">INSTA</span>
+        </a>
+
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Dark Mode" title="Toggle Theme">
+            <span class="theme-icon" id="theme-icon">🌙</span>
+            <span class="theme-label" id="theme-label">DARK</span>
+        </button>
+
+        <button id="sound-toggle-btn" class="sound-btn" aria-label="Toggle Minecraft Music" title="Play Music">
+            <span class="sound-icon" id="sound-icon">♪</span>
+            <span class="sound-label" id="sound-label">MUSIC</span>
+        </button>
+    </div>
+
+    <!-- GLASSMORPHIC MODAL DIALOGS -->
+
+    <!-- Modal 1: HOME (Schedule & Map) -->
+    <div class="modal-overlay" id="modal-schedule" role="dialog" aria-modal="true" aria-labelledby="modal-schedule-title">
+        <div class="modal-content glass-card size-large">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon cyan-glow"><i class="fa-solid fa-house-laptop"></i></div>
+                <h2 id="modal-schedule-title" class="modal-title">ORIENTATION DASHBOARD & SCHEDULE</h2>
+            </div>
+            <div class="modal-body">
+                <!-- Tab Controls -->
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-tab="tab-schedule-list" id="btn-tab-sched" onclick="document.querySelectorAll('#modal-schedule .tab-btn').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#modal-schedule .tab-content').forEach(c=>c.classList.remove('active')); this.classList.add('active'); document.getElementById('tab-schedule-list').classList.add('active');"><i class="fa-solid fa-clock"></i> Orientation Timeline</button>
+                    <button class="tab-btn" data-tab="tab-campus-map" id="btn-tab-map" onclick="document.querySelectorAll('#modal-schedule .tab-btn').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#modal-schedule .tab-content').forEach(c=>c.classList.remove('active')); this.classList.add('active'); document.getElementById('tab-campus-map').classList.add('active');"><i class="fa-solid fa-map-location-dot"></i> ADYPU Campus Map</button>
+                </div>
+                
+                <!-- Tab 1: Schedule Content -->
+                <div class="tab-content active" id="tab-schedule-list">
+                    <div class="timeline-container">
+                        
+                        <!-- PDF Page 2: DAY 01 Header -->
+                        <div class="pdf-day-banner">
+                            <div class="pdf-day-badge">DAY 01</div>
+                            <div class="pdf-day-date">07 – 09 AUG</div>
+                            <div class="pdf-day-biome">BIOME · SPAWN MEADOW</div>
+                        </div>
+
+                        <div class="pdf-day-title-block">
+                            <h2 class="pdf-day-headline">ARRIVAL.</h2>
+                            <p class="pdf-day-subhead">The Journey Begins</p>
+                        </div>
+
+                        <!-- DAY 01 ENTRIES -->
+                        <div class="timeline-item" data-venue="hostel">
+                            <div class="timeline-badge">01</div>
+                            <div class="timeline-details">
+                                <span class="time-tag"><i class="fa-solid fa-clock"></i> 09:30 – 13:00</span>
+                                <h3 class="event-title">Arrival & Registration</h3>
+                                <p class="event-desc">Welcome to campus! Complete entry verification, room key collection, and registration.</p>
+                                <span class="venue-tag highlight-trigger" data-target-venue="hostel"><i class="fa-solid fa-location-dot"></i> HOSTEL ALLOTMENT</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-venue="cafeteria">
+                            <div class="timeline-badge">02</div>
+                            <div class="timeline-details">
+                                <span class="time-tag"><i class="fa-solid fa-clock"></i> 13:00 – 14:00</span>
+                                <h3 class="event-title">Lunch</h3>
+                                <p class="event-desc">Enjoy your first official cohort lunch meal together with peers.</p>
+                                <span class="venue-tag highlight-trigger" data-target-venue="cafeteria"><i class="fa-solid fa-location-dot"></i> MESS HALL</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-venue="hostel">
+                            <div class="timeline-badge">03</div>
+                            <div class="timeline-details">
+                                <span class="time-tag"><i class="fa-solid fa-clock"></i> 14:00 – 18:00</span>
+                                <h3 class="event-title">Arrival & Registration</h3>
+                                <p class="event-desc">Afternoon check-in slot for remaining students, room setups, and luggage check.</p>
+                                <span class="venue-tag highlight-trigger" data-target-venue="hostel"><i class="fa-solid fa-location-dot"></i> HOSTEL ALLOTMENT</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-venue="sports">
+                            <div class="timeline-badge">04</div>
+                            <div class="timeline-details">
+                                <span class="time-tag"><i class="fa-solid fa-clock"></i> 18:00 – 21:00</span>
+                                <h3 class="event-title">Dinner + Snacks + Socials</h3>
+                                <p class="event-desc">Evening dinner gathering followed by the official campus Treasure Hunt activity!</p>
+                                <span class="venue-tag highlight-trigger" data-target-venue="sports"><i class="fa-solid fa-location-dot"></i> TREASURE HUNT / CAMPUS</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Tab 2: Map Content -->
+                <div class="tab-content" id="tab-campus-map">
+                    <div class="map-single-view">
+                        <!-- ADYPU Aerial Campus Map Image -->
+                        <div class="campus-map-container">
+                            <img src="assets/campus_map_aerial.jpg" alt="Newton School of Technology ADYPU Campus Aerial Map" class="campus-aerial-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: LEADS -->
+    <div class="modal-overlay" id="modal-poc" role="dialog" aria-modal="true" aria-labelledby="modal-poc-title">
+        <div class="modal-content glass-card size-large">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon purple-glow"><i class="fa-solid fa-user-tie"></i></div>
+                <h2 id="modal-poc-title" class="modal-title">NST ORIENTATION LEADS</h2>
+            </div>
+            <div class="modal-body">
+                <!-- Search & Filters -->
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="poc-search-input" placeholder="Search leads by name or role...">
+                    </div>
+                    <div class="filter-tags" id="poc-filters">
+                        <button class="filter-btn active" data-filter="all" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('all');">All Leads</button>
+                        <button class="filter-btn" data-filter="hostel" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('hostel');">Hostel Leads</button>
+                        <button class="filter-btn" data-filter="coordination" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('coordination');">Coordination & Doc</button>
+                        <button class="filter-btn" data-filter="creative" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('creative');">Creative & Decor</button>
+                        <button class="filter-btn" data-filter="events" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('events');">Events & Theatre</button>
+                    </div>
+                </div>
+                
+                <!-- POC Grid -->
+                <div class="poc-grid" id="poc-grid-container">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: HOSPITALITY (Guidelines) -->
+    <div class="modal-overlay" id="modal-guidelines" role="dialog" aria-modal="true" aria-labelledby="modal-guidelines-title">
+        <div class="modal-content glass-card">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon gold-glow"><i class="fa-solid fa-hotel"></i></div>
+                <h2 id="modal-guidelines-title" class="modal-title">HOSPITALITY & CAMPUS SERVICES</h2>
+            </div>
+            <div class="modal-body scroll-vertical">
+                <p class="section-intro">Welcome to the Ajeenkya DY Patil campus. Use this digital survival toolkit to navigate our hostels, mess dining, safety, and local services during the event.</p>
+                
+                <!-- OFFICIAL POLICIES & GUIDELINES DRIVE BUTTON -->
+                <div class="drive-policy-banner">
+                    <a href="https://drive.google.com/drive/folders/1fdyfxXLgxILXMG4zmCuzsNQvPX06-qv2?usp=drive_link" target="_blank" rel="noopener noreferrer" class="drive-policy-btn">
+                        <i class="fa-brands fa-google-drive"></i>
+                        <span>VIEW OFFICIAL GUIDELINES & POLICIES (GOOGLE DRIVE)</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-item active">
+                        <button class="accordion-header" id="acc-header-1">
+                            <span><i class="fa-solid fa-bed"></i> Hostel Allotment & Code of Conduct</span>
+                            <i class="fa-solid fa-chevron-down indicator"></i>
+                        </button>
+                        <div class="accordion-panel" id="acc-panel-1" role="region" aria-labelledby="acc-header-1">
+                            <p>For comfortable residential living, keep these rules in mind:</p>
+                            <ul>
+                                <li><strong>Hostel Registration:</strong> Bring copy of payment slip and verification slips to Block A desk.</li>
+                                <li><strong>Curfew Hours:</strong> Entry and exit must be updated by 09:30 PM daily.</li>
+                                <li><strong>Quiet Hours:</strong> Post 10:00 PM, quiet hours are enforced in the hallways to assist students who are studying or sleeping.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" id="acc-header-2">
+                            <span><i class="fa-solid fa-utensils"></i> Dining Hall & Mess Schedules</span>
+                            <i class="fa-solid fa-chevron-down indicator"></i>
+                        </button>
+                        <div class="accordion-panel" id="acc-panel-2" role="region" aria-labelledby="acc-header-2">
+                            <p>Rotating hot meals are served in the Mess Complex daily:</p>
+                            <ul>
+                                <li><strong>Breakfast:</strong> 07:30 AM - 09:15 AM</li>
+                                <li><strong>Lunch:</strong> 12:30 PM - 02:15 PM</li>
+                                <li><strong>High Tea:</strong> 05:00 PM - 06:15 PM</li>
+                                <li><strong>Dinner:</strong> 07:45 PM - 09:30 PM</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" id="acc-header-3">
+                            <span><i class="fa-solid fa-kit-medical"></i> Health, Security & Safety Guidelines</span>
+                            <i class="fa-solid fa-chevron-down indicator"></i>
+                        </button>
+                        <div class="accordion-panel" id="acc-panel-3" role="region" aria-labelledby="acc-header-3">
+                            <p>Your safety is our top priority. The campus is equipped with 24/7 security and a medical emergency center:</p>
+                            <ul>
+                                <li><strong>Medical Room:</strong> Located in the Student Wellness Hub (near Admin Block). Open 24/7 with a doctor on call.</li>
+                                <li><strong>Security Hotlines:</strong> Security guards are posted at every block gate. If you spot suspicious activity, dial the security hotline (found in the POC block).</li>
+                                <li><strong>ID Cards:</strong> Always carry your physical student ID card. Security checks are standard at the main university entry gate.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" id="acc-header-4">
+                            <span><i class="fa-solid fa-compass"></i> Pune Local Tips (Outstation Students)</span>
+                            <i class="fa-solid fa-chevron-down indicator"></i>
+                        </button>
+                        <div class="accordion-panel" id="acc-panel-4" role="region" aria-labelledby="acc-header-4">
+                            <p>Welcome to Pune! Here are some local tips to help you settle in:</p>
+                            <ul>
+                                <li><strong>Transport:</strong> Auto-rickshaws (Ola, Uber, or local meter) are easily accessible outside the main gate. The nearest major bus depot is Lohegaon.</li>
+                                <li><strong>Food Outlets:</strong> While the mess serves three hot meals a day, check out DY Patil College Road for local cafes, street food, and essential stationery shops.</li>
+                                <li><strong>Weather:</strong> Pune weather is pleasant, but carrying an umbrella during August orientation is highly recommended as sudden monsoons are frequent.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: COMPETITIONS -->
+    <div class="modal-overlay" id="modal-competitions" role="dialog" aria-modal="true" aria-labelledby="modal-competitions-title">
+        <div class="modal-content glass-card size-large">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon pink-glow"><i class="fa-solid fa-trophy"></i></div>
+                <h2 id="modal-competitions-title" class="modal-title">ORIENTATION BATTLES & COMPETITIONS</h2>
+            </div>
+            <div class="modal-body scroll-vertical">
+                <p class="section-intro">Compete with the sharpest minds in tech, design, and gaming. Check out our main tournaments below!</p>
+                <div class="competitions-grid">
+                    <div class="comp-card glass-card">
+                        <div class="comp-icon"><i class="fa-solid fa-laptop-code text-cyan"></i></div>
+                        <div class="comp-info">
+                            <h3>ORIENTATION Hack 2026</h3>
+                            <span class="comp-prize"><i class="fa-solid fa-award"></i> Prize Pool: ₹1,50,000</span>
+                            <p>A 36-hour intense hackathon where teams solve real-world problems using cutting-edge AI and tech stacks.</p>
+                            <span class="comp-meta"><strong>Venue:</strong> Central Library study Hub | <strong>Teams:</strong> 2-4 members</span>
+                        </div>
+                    </div>
+                    <div class="comp-card glass-card">
+                        <div class="comp-icon"><i class="fa-solid fa-compass-drafting text-purple"></i></div>
+                        <div class="comp-info">
+                            <h3>UI/UX Pixel War</h3>
+                            <span class="comp-prize"><i class="fa-solid fa-award"></i> Prize Pool: ₹50,000</span>
+                            <p>Design a stunning web interface matching a mystery brief in 3 hours. Judged on accessibility, aesthetics, and usability.</p>
+                            <span class="comp-meta"><strong>Venue:</strong> CS Computer Lab 3 | <strong>Teams:</strong> Solo</span>
+                        </div>
+                    </div>
+                    <div class="comp-card glass-card">
+                        <div class="comp-icon"><i class="fa-solid fa-gamepad text-pink"></i></div>
+                        <div class="comp-info">
+                            <h3>Valorant Arena</h3>
+                            <span class="comp-prize"><i class="fa-solid fa-award"></i> Prize Pool: ₹75,000</span>
+                            <p>The ultimate tactical shooter showdown. Bring your squad and dominate the ADYPU gaming arena.</p>
+                            <span class="comp-meta"><strong>Venue:</strong> Innovation Lab | <strong>Teams:</strong> 5 members</span>
+                        </div>
+                    </div>
+                    <div class="comp-card glass-card">
+                        <div class="comp-icon"><i class="fa-solid fa-robot text-green"></i></div>
+                        <div class="comp-info">
+                            <h3>Robotics Grid Battle</h3>
+                            <span class="comp-prize"><i class="fa-solid fa-award"></i> Prize Pool: ₹1,00,000</span>
+                            <p>Build an autonomous robot to navigate a complex grid, avoid obstacles, and finish the maze in the fastest time.</p>
+                            <span class="comp-meta"><strong>Venue:</strong> Mechanical Arena | <strong>Teams:</strong> 1-3 members</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: EVENTS (Locked Upcoming Events) -->
+    <div class="modal-overlay" id="modal-locked" role="dialog" aria-modal="true" aria-labelledby="modal-locked-title">
+        <div class="modal-content glass-card size-medium text-center">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="lock-visual-wrapper">
+                <div class="lock-icon-container">
+                    <i class="fa-solid fa-lock security-lock-icon"></i>
+                    <div class="scan-line"></div>
+                </div>
+            </div>
+            <h2 id="modal-locked-title" class="locked-headline">EVENTS ACCESS ENCRYPTED</h2>
+            <p class="locked-subtitle">Upcoming cultural night, concerts, and freshers events are currently encrypted. Complete orientation tasks to decrypt. Something massive is coming!</p>
+            
+            <div class="countdown-panel">
+                <h3 class="countdown-title">SYSTEM DECRYPTION IN PROGRESS</h3>
+                <div class="countdown-timer">
+                    <div class="time-block">
+                        <span class="time-val" id="cd-days">00</span>
+                        <span class="time-lbl">Days</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-hours">00</span>
+                        <span class="time-lbl">Hrs</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-minutes">00</span>
+                        <span class="time-lbl">Mins</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-seconds">00</span>
+                        <span class="time-lbl">Secs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="locked-preview-list">
+                <h4>Encrypted Events Queue</h4>
+                <div class="preview-item">
+                    <span class="tag-locked"><i class="fa-solid fa-key"></i> Code: TEK-CONCERT</span>
+                    <span class="label-blurred">Star Celebrity Music Concert & EDM Night</span>
+                </div>
+                <div class="preview-item">
+                    <span class="tag-locked"><i class="fa-solid fa-key"></i> Code: TEK-FASHION</span>
+                    <span class="label-blurred">The Grand Freshers Welcome Prom & Fashion Show</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: GALLERY (Campus Life & NST Dictionary) -->
+    <div class="modal-overlay" id="modal-culture" role="dialog" aria-modal="true" aria-labelledby="modal-culture-title">
+        <div class="modal-content glass-card size-large">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon pink-glow"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h2 id="modal-culture-title" class="modal-title">CAMPUS LIFE & DICTIONARY</h2>
+            </div>
+            <div class="modal-body scroll-vertical">
+                
+                <!-- PART 1 — CAMPUS LIFE -->
+                <section class="campus-life-section">
+                    <div class="section-header-block text-center">
+                        <h2 class="cl-heading">Not Just a College. A Community.</h2>
+                        <p class="cl-subheading">From football under the floodlights to national competitions and international opportunities, this is where your college memories begin.</p>
+                    </div>
+
+                    <div class="campus-masonry-grid">
+                        
+                        <!-- Football Card 1 -->
+                        <div class="cl-card card-football-1">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/football_team_1.jpg" alt="NST Football Team Victory" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge gold-badge"><i class="fa-solid fa-trophy"></i> Champion</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">⚽ Football</h3>
+                                <span class="cl-card-subtag">Winner of a lot of competitions</span>
+                                <p class="cl-card-desc">"The heart of campus. Evening matches, hostel rivalries, tournaments, and unforgettable celebrations."</p>
+                            </div>
+                        </div>
+
+                        <!-- Football Card 2 -->
+                        <div class="cl-card card-football-2">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/football_team_2.jpg" alt="NST Football Team Squad" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge cyan-badge"><i class="fa-solid fa-futbol"></i> Squad Glory</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">⚽ Football Squad</h3>
+                                <span class="cl-card-subtag">Unstoppable Spirit</span>
+                                <p class="cl-card-desc">"The heart of campus. Evening matches, hostel rivalries, tournaments, and unforgettable celebrations."</p>
+                            </div>
+                        </div>
+
+                        <!-- Construct Emergent Hackathon -->
+                        <div class="cl-card card-hackathon">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/construct_hackathon.jpg" alt="Construct Emergent Hackathon Winner Presentation" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge purple-badge"><i class="fa-solid fa-award"></i> Winner</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🏗 Construct Emergent Hackathon</h3>
+                                <span class="cl-card-subtag">Hackathon Winner</span>
+                                <p class="cl-card-desc">"Building, designing, innovating. A place for creators who love solving real-world problems."</p>
+                            </div>
+                        </div>
+
+                        <!-- IIT Roorkee -->
+                        <div class="cl-card card-iit">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/iit_roorkee.jpg" alt="IIT Roorkee AppNova Hackathon Winners" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge gold-badge"><i class="fa-solid fa-crown"></i> AppNova Winner</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🏆 IIT Roorkee</h3>
+                                <span class="cl-card-subtag">Winner of AppNova Hackathon</span>
+                                <p class="cl-card-desc">"Representing NST on national stages through competitions, hackathons, and technical events."</p>
+                            </div>
+                        </div>
+
+                        <!-- Orientation -->
+                        <div class="cl-card card-tekron">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/tekron_fest.jpg" alt="NST Orientation Celebration Night" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge pink-badge"><i class="fa-solid fa-guitar"></i> Annual Orientation</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🎉 Orientation</h3>
+                                <span class="cl-card-subtag">Flagship Campus Event</span>
+                                <p class="cl-card-desc">"The biggest celebration on campus. Music, competitions, performances, and unforgettable nights."</p>
+                            </div>
+                        </div>
+
+                        <!-- Impact India -->
+                        <div class="cl-card card-impact">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/impact_india.jpg" alt="Impact India Social Initiative" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge green-badge"><i class="fa-solid fa-heart"></i> Social Drive</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🌍 Impact India</h3>
+                                <span class="cl-card-subtag">Community Service</span>
+                                <p class="cl-card-desc">"Making a difference beyond campus through social initiatives and community service."</p>
+                            </div>
+                        </div>
+
+                        <!-- AIESEC Egypt -->
+                        <div class="cl-card card-egypt">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/aiesec_egypt.jpg" alt="AIESEC Egypt International Program" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge orange-badge"><i class="fa-solid fa-plane"></i> Global Exposure</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">✈️ AIESEC Egypt</h3>
+                                <span class="cl-card-subtag">International Collaboration</span>
+                                <p class="cl-card-desc">"Global exposure, international collaborations, leadership, and experiences beyond borders."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <hr class="section-divider">
+
+                <!-- PART 2 — NST DICTIONARY -->
+                <section class="nst-dictionary-section">
+                    <div class="section-header-block text-center">
+                        <h2 class="dict-heading">Learn the Language.</h2>
+                        <p class="dict-subheading">Five words you'll hear every single day.</p>
+                    </div>
+
+                    <div class="slang-grid">
+                        
+                        <!-- Card 1 -->
+                        <div class="slang-card rot-neg-2">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🤝</span>
+                                <h3 class="slang-word">Bhaiya / Didi</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Your seniors (2nd Year)."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="slang-card rot-pos-2">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🫡</span>
+                                <h3 class="slang-word">Sir / Ma'am</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Your super seniors (3rd Year)."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="slang-card rot-neg-3">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🔥</span>
+                                <h3 class="slang-word">Lessgoooo Hai!</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Trigger word for doing a task as soon as someone says this word or sometimes use when something exciting just happened."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="slang-card rot-pos-3">
+                            <div class="slang-header">
+                                <span class="slang-emoji">⚡</span>
+                                <h3 class="slang-word">Game Haii!</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Use when some of your friend does something crazy which others couldn't."</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom Quote -->
+                    <div class="dictionary-quote-box">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <blockquote class="quote-text">
+                            "You'll come here knowing no one.<br>
+                            You'll leave knowing everyone."
+                        </blockquote>
+                        <div class="quote-icon right"><i class="fa-solid fa-quote-right"></i></div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for Gallery Images -->
+    <div class="lightbox-overlay" id="gallery-lightbox">
+        <button class="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed view">
+        <div class="lightbox-caption" id="lightbox-caption-text"></div>
+    </div>
+
+    <!-- Modal 7: SPONSORS -->
+    <div class="modal-overlay" id="modal-sponsors" role="dialog" aria-modal="true" aria-labelledby="modal-sponsors-title">
+        <div class="modal-content glass-card size-large">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-inner">
+                <img src="assets/nst_logo.png" alt="Newton School of Technology" class="nst-modal-header-logo">
+                <div class="header-icon green-glow"><i class="fa-solid fa-handshake"></i></div>
+                <h2 id="modal-sponsors-title" class="modal-title">ORIENTATION SPONSORS & BENEFITS</h2>
+            </div>
+            <div class="modal-body scroll-vertical">
+                <p class="section-intro">Meet the global brands supporting ORIENTATION 2026. Claim exclusive benefits for students using the vouchers below!</p>
+                
+                <div class="sponsors-cards-container">
+                    <div class="sponsor-detail-card glass-card">
+                        <div class="logo-box"><i class="fa-solid fa-microchip text-intel"></i> Intel Corporation</div>
+                        <div class="details">
+                            <span class="sponsor-tier-badge platinum">PLATINUM SPONSOR</span>
+                            <p>Intel provides advanced computing hardware for Newton School research labs, powering AI modeling and software projects.</p>
+                            <div class="benefit-box">
+                                <strong>Exclusive Voucher:</strong>
+                                <span>Get 15% off Intel Core processors and dev kits using code <code>INTELNST15</code></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sponsor-detail-card glass-card">
+                        <div class="logo-box"><i class="fa-solid fa-bolt text-monster"></i> Monster Energy</div>
+                        <div class="details">
+                            <span class="sponsor-tier-badge gold">GOLD ENERGY SPONSOR</span>
+                            <p>Powering the Hackathon participants. Monster keeps the coding arena running with endless caffeine and energy.</p>
+                            <div class="benefit-box">
+                                <strong>Hackathon Perk:</strong>
+                                <span>Free unlimited Monster Energy cans at the Central Library desk during the 36-hour hackathon.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sponsor-detail-card glass-card">
+                        <div class="logo-box"><i class="fa-solid fa-code text-gfg"></i> GeeksforGeeks</div>
+                        <div class="details">
+                            <span class="sponsor-tier-badge associate">OFFICIAL CODING PARTNER</span>
+                            <p>GeeksforGeeks is a leading portal for computer science interviews and coding practice. Supporting student coding clubs.</p>
+                            <div class="benefit-box">
+                                <strong>Practice Perk:</strong>
+                                <span>Free 3-month access to GeeksforGeeks Premium classes using code <code>GFGTEKRON2026</code></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sponsor-detail-card glass-card">
+                        <div class="logo-box"><i class="fa-solid fa-pizza-slice text-pizzahut"></i> Pizza Hut</div>
+                        <div class="details">
+                            <span class="sponsor-tier-badge silver">OFFICIAL FOOD SPONSOR</span>
+                            <p>Providing hot meals, pizzas, and desserts for the Day 5 Food Carnival and cultural night networking.</p>
+                            <div class="benefit-box">
+                                <strong>Student Discount:</strong>
+                                <span>Buy 1 Get 1 Free on all medium pan pizzas using coupon code <code>PIZZATEKRON</code> at billing.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8: GET TO KNOW (Locked) -->
+    <div class="modal-overlay" id="modal-faculty" role="dialog" aria-modal="true" aria-labelledby="modal-faculty-title">
+        <div class="modal-content glass-card size-medium text-center">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="lock-visual-wrapper">
+                <div class="lock-icon-container">
+                    <i class="fa-solid fa-lock security-lock-icon"></i>
+                    <div class="scan-line"></div>
+                </div>
+            </div>
+            <h2 id="modal-faculty-title" class="locked-headline">GET TO KNOW ACCESS ENCRYPTED</h2>
+            <p class="locked-subtitle">Faculty profiles, mentors, and campus guide directory are currently encrypted. Complete orientation tasks to decrypt!</p>
+            
+            <div class="countdown-panel">
+                <h3 class="countdown-title">SYSTEM DECRYPTION IN PROGRESS</h3>
+                <div class="countdown-timer">
+                    <div class="time-block">
+                        <span class="time-val" id="cd-gtk-days">00</span>
+                        <span class="time-lbl">Days</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-gtk-hours">00</span>
+                        <span class="time-lbl">Hrs</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-gtk-minutes">00</span>
+                        <span class="time-lbl">Mins</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-val" id="cd-gtk-seconds">00</span>
+                        <span class="time-lbl">Secs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="locked-preview-list">
+                <h4>Encrypted Directory Queue</h4>
+                <div class="preview-item">
+                    <span class="tag-locked"><i class="fa-solid fa-key"></i> Code: GTK-FACULTY</span>
+                    <span class="label-blurred">Professors, CS Dept Heads & Industry Mentors</span>
+                </div>
+                <div class="preview-item">
+                    <span class="tag-locked"><i class="fa-solid fa-key"></i> Code: GTK-GUIDE</span>
+                    <span class="label-blurred">Senior-Junior Mentorship & Campus Directories</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>
