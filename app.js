@@ -649,6 +649,19 @@ function initPocDirectory() {
     // Listeners
     if (searchInput) searchInput.addEventListener('input', handleFilters);
     
+    window.filterPocList = function(category) {
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const filtered = pocData.filter(poc => {
+            const matchesSearch = !searchTerm || 
+                                  poc.name.toLowerCase().includes(searchTerm) || 
+                                  poc.role.toLowerCase().includes(searchTerm) ||
+                                  poc.desc.toLowerCase().includes(searchTerm);
+            const matchesCategory = category === 'all' || poc.dept === category;
+            return matchesSearch && matchesCategory;
+        });
+        renderPocs(filtered);
+    };
+
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));

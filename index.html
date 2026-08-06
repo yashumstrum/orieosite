@@ -256,11 +256,11 @@
                         <input type="text" id="poc-search-input" placeholder="Search leads by name or role...">
                     </div>
                     <div class="filter-tags" id="poc-filters">
-                        <button class="filter-btn active" data-filter="all">All Leads</button>
-                        <button class="filter-btn" data-filter="hostel">Hostel Leads</button>
-                        <button class="filter-btn" data-filter="coordination">Coordination & Doc</button>
-                        <button class="filter-btn" data-filter="creative">Creative & Decor</button>
-                        <button class="filter-btn" data-filter="events">Events & Theatre</button>
+                        <button class="filter-btn active" data-filter="all" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('all');">All Leads</button>
+                        <button class="filter-btn" data-filter="hostel" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('hostel');">Hostel Leads</button>
+                        <button class="filter-btn" data-filter="coordination" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('coordination');">Coordination & Doc</button>
+                        <button class="filter-btn" data-filter="creative" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('creative');">Creative & Decor</button>
+                        <button class="filter-btn" data-filter="events" onclick="document.querySelectorAll('#poc-filters .filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); if(window.filterPocList) window.filterPocList('events');">Events & Theatre</button>
                     </div>
                 </div>
                 
