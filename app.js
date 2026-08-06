@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPocDirectory();
     initFacultyDirectory();
     initCampusMapInteractions();
-    initGuidelinesAccordion();
     initCultureGallery();
     initSoundToggle();
     initIslandXPOrbs();
@@ -752,12 +751,12 @@ const landmarkDetails = {
     "lm-sports": {
         title: "ADYPU Arena & Sports Plaza",
         body: "Sports complex featuring outdoor courts (tennis, basketball), indoor table tennis hubs, and grass fields.",
-        details: "<strong>Orientation Activity:</strong> Day 3 Team Building matches and recreational sports icebreakers"
+        details: "<strong>Orientation Activity:</strong> Day 3 Team Building matches and recreational sports icebreakers."
     },
     "lm-hostel": {
         title: "NST Residential Hostel Blocks (Boys & Girls)",
-        body: "Modern residential housing for student scholars. Equipped with study spaces, high-speed Wi-Fi hubs, laundry services, and common lounge rooms.",
-        details: "<strong>Orientation Activity:</strong> Day 7 checkout, check-in room key allocation, and settling into campus life."
+        body: "Modern residential housing for student scholars. Equipped with study spaces, Wi-Fi hubs, laundry services, and common lounge rooms.",
+        details: "<strong>Orientation Activity:</strong> Day 7 checkout check-in updates and settling."
     },
     "lm-gate": {
         title: "ADYPU Main Gate (DY Patil University Rd)",
@@ -781,14 +780,13 @@ function initCampusMapInteractions() {
         if (!data) return;
         
         infoDisplay.innerHTML = `
-            <h3 class="info-title" style="color: var(--color-cyan); font-family: 'Press Start 2P', monospace; font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.8rem;">${data.title}</h3>
+            <h3 class="info-title" style="color: var(--color-cyan); font-family: 'Press Start 2P', monospace; font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.8rem;">${data.title}</h3>
             <p class="info-body" style="font-size: 0.88rem; line-height: 1.6; color: #475569; margin-bottom: 1rem;">${data.body}</p>
             <div class="info-details-box" style="background: rgba(2, 132, 199, 0.08); border-left: 3px solid #0284c7; padding: 0.8rem 1rem; border-radius: 0 6px 6px 0; font-size: 0.82rem; color: #0f172a;">
                 ${data.details}
             </div>
         `;
         
-        // Highlight active hotspot pin
         hotspots.forEach(hs => hs.classList.remove('active'));
         const targetPin = document.querySelector(`.map-hotspot[data-landmark="${landmarkId}"]`);
         if (targetPin) {
@@ -803,7 +801,6 @@ function initCampusMapInteractions() {
         });
     });
     
-    // Tab Switching Logic
     if (tabSched && tabMap && tabSchedList && tabCampusMap) {
         tabSched.addEventListener('click', () => {
             tabSched.classList.add('active');
@@ -811,7 +808,6 @@ function initCampusMapInteractions() {
             tabSchedList.classList.add('active');
             tabCampusMap.classList.remove('active');
         });
-        
         tabMap.addEventListener('click', () => {
             tabMap.classList.add('active');
             tabSched.classList.remove('active');
@@ -820,7 +816,6 @@ function initCampusMapInteractions() {
         });
     }
     
-    // Venue Tag Triggers in Schedule Timeline
     document.querySelectorAll('.highlight-trigger').forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -833,7 +828,6 @@ function initCampusMapInteractions() {
             if (targetVenue === 'cafeteria') landmarkId = 'lm-cafeteria';
             if (targetVenue === 'hostel') landmarkId = 'lm-hostel';
             
-            // Switch to map tab
             if (tabMap) tabMap.click();
             setTimeout(() => showLandmarkInfo(landmarkId), 150);
         });
@@ -843,25 +837,23 @@ function initCampusMapInteractions() {
 /* ==========================================================================
    7. Guidelines Accordion logic (HOSPITALITY modal)
    ========================================================================== */
-function initGuidelinesAccordion() {
-    const accHeaders = document.querySelectorAll('.accordion-header');
-    accHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close other panels
-            document.querySelectorAll('.accordion-item').forEach(i => {
-                i.classList.remove('active');
-            });
-            
-            // Toggle current panel
-            if (!isActive) {
-                item.classList.add('active');
-            }
+const accHeaders = document.querySelectorAll('.accordion-header');
+accHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close other panels
+        document.querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('active');
         });
+        
+        // Toggle current panel
+        if (!isActive) {
+            item.classList.add('active');
+        }
     });
-}
+});
 
 /* ==========================================================================
    8. Culture Photo Gallery & Lightbox (GALLERY modal)
