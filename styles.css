@@ -2948,3 +2948,69 @@ body.dark-theme .theme-label {
     100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.8); }
 }
 
+
+/* ==========================================================================
+   OFFICIAL NST LOGO STYLING (TOP RIGHT, LOADER, MODALS)
+   ========================================================================== */
+.fixed-top-logo-container {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 100;
+    pointer-events: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.fixed-top-logo-container:hover {
+    transform: scale(1.05);
+}
+
+.official-top-logo {
+    height: 48px;
+    width: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 2px solid #7a4f00;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.loader-brand-img-wrapper {
+    margin-bottom: 1rem;
+}
+
+.loader-nst-logo {
+    height: 54px;
+    width: auto;
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 2px solid #7a4f00;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.nst-modal-header-logo {
+    height: 38px;
+    width: auto;
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(122, 79, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .fixed-top-logo-container {
+        top: 12px;
+        right: 12px;
+    }
+    .official-top-logo {
+        height: 36px;
+        padding: 4px 10px;
+    }
+    .loader-nst-logo {
+        height: 44px;
+    }
+}
+
