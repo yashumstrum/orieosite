@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPocDirectory();
     initFacultyDirectory();
     initCampusMapInteractions();
+    initGuidelinesAccordion();
     initCultureGallery();
     initSoundToggle();
     initIslandXPOrbs();
@@ -842,23 +843,25 @@ function initCampusMapInteractions() {
 /* ==========================================================================
    7. Guidelines Accordion logic (HOSPITALITY modal)
    ========================================================================== */
-const accHeaders = document.querySelectorAll('.accordion-header');
-accHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const isActive = item.classList.contains('active');
-        
-        // Close other panels
-        document.querySelectorAll('.accordion-item').forEach(i => {
-            i.classList.remove('active');
+function initGuidelinesAccordion() {
+    const accHeaders = document.querySelectorAll('.accordion-header');
+    accHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close other panels
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('active');
+            });
+            
+            // Toggle current panel
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
-        
-        // Toggle current panel
-        if (!isActive) {
-            item.classList.add('active');
-        }
     });
-});
+}
 
 /* ==========================================================================
    8. Culture Photo Gallery & Lightbox (GALLERY modal)
