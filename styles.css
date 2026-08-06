@@ -2531,6 +2531,244 @@ body.dark-theme .theme-label {
 }
 
 
+/* ==========================================================================
+   CAMPUS LIFE & NST DICTIONARY DESIGN SYSTEM
+   ========================================================================== */
+.campus-life-section, .nst-dictionary-section {
+    padding: 1rem 0;
+}
+
+.section-header-block {
+    margin-bottom: 2rem;
+}
+
+.cl-heading, .dict-heading {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.3rem;
+    color: #fef08a;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 0 #7a4f00;
+}
+
+.cl-subheading, .dict-subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- PART 1: CAMPUS LIFE MASONRY GRID --- */
+.campus-masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.6rem;
+}
+
+.cl-card {
+    background: rgba(20, 24, 33, 0.85);
+    border: 3px solid #7a4f00;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    animation: floatCard 6s ease-in-out infinite alternate;
+}
+
+.cl-card:nth-child(even) {
+    animation-delay: -3s;
+}
+
+@keyframes floatCard {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
+
+.cl-card:hover {
+    transform: translateY(-12px) scale(1.02) !important;
+    border-color: #f59e0b;
+    box-shadow: 0 16px 36px rgba(245, 158, 11, 0.25);
+}
+
+.cl-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.cl-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cl-card:hover .cl-card-img {
+    transform: scale(1.12);
+}
+
+.cl-card-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(15, 23, 42, 0.95) 100%);
+}
+
+.cl-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 2;
+}
+
+.gold-badge   { background: #f59e0b; color: #451a03; }
+.cyan-badge   { background: #06b6d4; color: #083344; }
+.purple-badge { background: #a855f7; color: #3b0764; }
+.pink-badge   { background: #ec4899; color: #500724; }
+.green-badge  { background: #10b981; color: #022c22; }
+.orange-badge { background: #f97316; color: #431407; }
+
+.cl-card-content {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cl-card-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+}
+
+.cl-card-subtag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    color: #f59e0b;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cl-card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+.section-divider {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
+    margin: 3rem 0;
+}
+
+/* --- PART 2: NST DICTIONARY SLANG CARDS --- */
+.slang-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+}
+
+.slang-card {
+    background: #fffbeb;
+    border: 3px solid #7a4f00;
+    border-radius: 18px;
+    padding: 1.6rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.rot-neg-2 { transform: rotate(-2deg); }
+.rot-pos-2 { transform: rotate(2deg); }
+.rot-neg-3 { transform: rotate(-3deg); }
+.rot-pos-3 { transform: rotate(3deg); }
+
+.slang-card:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 16px 32px rgba(122, 79, 0, 0.3);
+    background: #ffffff;
+}
+
+.slang-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed rgba(122, 79, 0, 0.2);
+    padding-bottom: 0.8rem;
+}
+
+.slang-emoji {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.slang-word {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.95rem;
+    color: #7a4f00;
+    line-height: 1.3;
+}
+
+.slang-meaning {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: #451a03;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* --- BOTTOM DICTIONARY QUOTE --- */
+.dictionary-quote-box {
+    margin-top: 3.5rem;
+    padding: 2.2rem 1.8rem;
+    background: rgba(245, 158, 11, 0.08);
+    border: 2px dashed rgba(245, 158, 11, 0.4);
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: #f59e0b;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.quote-icon.right {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.quote-text {
+    font-family: 'Silkscreen', monospace;
+    font-size: 1.15rem;
+    color: #fef08a;
+    line-height: 1.8;
+    text-shadow: 1px 1px 0 #7a4f00;
+}
+
+
 
 
 

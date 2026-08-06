@@ -450,57 +450,194 @@
         </div>
     </div>
 
-    <!-- Modal 6: GALLERY (Culture) -->
+    <!-- Modal 6: GALLERY (Campus Life & NST Dictionary) -->
     <div class="modal-overlay" id="modal-culture" role="dialog" aria-modal="true" aria-labelledby="modal-culture-title">
         <div class="modal-content glass-card size-large">
             <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-header-inner">
-                <div class="header-icon pink-glow"><i class="fa-solid fa-images"></i></div>
-                <h2 id="modal-culture-title" class="modal-title">CULTURE & MEMORIES GALLERY</h2>
+                <div class="header-icon pink-glow"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h2 id="modal-culture-title" class="modal-title">CAMPUS LIFE & DICTIONARY</h2>
             </div>
             <div class="modal-body scroll-vertical">
-                <div class="culture-layout">
-                    <div class="culture-intro">
-                        <h3>Life at Newton School of Technology</h3>
-                        <p>Newton School of Technology is not just about classrooms and code; it's a culture of innovation, hands-on learning, and breaking limits. We build, we fail, we learn, and we scale. Being an NSTian means you are part of a tight-knit community of developers, builders, creators, and future tech leaders.</p>
-                        <div class="culture-stats">
-                            <div class="stat-box">
-                                <span class="stat-num">50+</span>
-                                <span class="stat-lbl">Hackathons Yearly</span>
+                
+                <!-- PART 1 — CAMPUS LIFE -->
+                <section class="campus-life-section">
+                    <div class="section-header-block text-center">
+                        <h2 class="cl-heading">Not Just a College. A Community.</h2>
+                        <p class="cl-subheading">From football under the floodlights to national competitions and international opportunities, this is where your college memories begin.</p>
+                    </div>
+
+                    <div class="campus-masonry-grid">
+                        
+                        <!-- Football Card 1 -->
+                        <div class="cl-card card-football-1">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/football_team_1.jpg" alt="NST Football Team Victory" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge gold-badge"><i class="fa-solid fa-trophy"></i> Champion</span>
                             </div>
-                            <div class="stat-box">
-                                <span class="stat-num">10+</span>
-                                <span class="stat-lbl">Active Tech Clubs</span>
-                            </div>
-                            <div class="stat-box">
-                                <span class="stat-num">24/7</span>
-                                <span class="stat-lbl">Coding Culture</span>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">⚽ Football</h3>
+                                <span class="cl-card-subtag">Winner of a lot of competitions</span>
+                                <p class="cl-card-desc">"The heart of campus. Evening matches, hostel rivalries, tournaments, and unforgettable celebrations."</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="gallery-section">
-                        <h3>Campus Events & Action Shots</h3>
-                        <div class="gallery-grid">
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="Students collaborating at a coding hackathon event" class="gallery-img">
-                                <div class="gallery-caption">Collaborative Hackathons</div>
+
+                        <!-- Football Card 2 -->
+                        <div class="cl-card card-football-2">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/football_team_2.jpg" alt="NST Football Team Squad" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge cyan-badge"><i class="fa-solid fa-futbol"></i> Squad Glory</span>
                             </div>
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="Seniors and juniors team bonding discussion" class="gallery-img">
-                                <div class="gallery-caption">Mentorship Sessions</div>
-                            </div>
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=500&q=80" alt="Cultural performance evening at the auditorium" class="gallery-img">
-                                <div class="gallery-caption">ADYPU Campus Events</div>
-                            </div>
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=500&q=80" alt="Graduation and project presentations" class="gallery-img">
-                                <div class="gallery-caption">Project Showcases</div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">⚽ Football Squad</h3>
+                                <span class="cl-card-subtag">Unstoppable Spirit</span>
+                                <p class="cl-card-desc">"The heart of campus. Evening matches, hostel rivalries, tournaments, and unforgettable celebrations."</p>
                             </div>
                         </div>
+
+                        <!-- Construct Emergent Hackathon -->
+                        <div class="cl-card card-hackathon">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/construct_hackathon.jpg" alt="Construct Emergent Hackathon Winner Presentation" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge purple-badge"><i class="fa-solid fa-award"></i> Winner</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🏗 Construct Emergent Hackathon</h3>
+                                <span class="cl-card-subtag">Hackathon Winner</span>
+                                <p class="cl-card-desc">"Building, designing, innovating. A place for creators who love solving real-world problems."</p>
+                            </div>
+                        </div>
+
+                        <!-- IIT Roorkee -->
+                        <div class="cl-card card-iit">
+                            <div class="cl-card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80" alt="IIT Roorkee National Competition" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge gold-badge"><i class="fa-solid fa-crown"></i> AppNova Winner</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🏆 IIT Roorkee</h3>
+                                <span class="cl-card-subtag">Winner of AppNova Hackathon</span>
+                                <p class="cl-card-desc">"Representing NST on national stages through competitions, hackathons, and technical events."</p>
+                            </div>
+                        </div>
+
+                        <!-- Tekron -->
+                        <div class="cl-card card-tekron">
+                            <div class="cl-card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=700&q=80" alt="Tekron Campus Festival Night" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge pink-badge"><i class="fa-solid fa-guitar"></i> Annual Fest</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🎉 Tekron</h3>
+                                <span class="cl-card-subtag">Flagship Campus Fest</span>
+                                <p class="cl-card-desc">"The biggest celebration on campus. Music, competitions, performances, and unforgettable nights."</p>
+                            </div>
+                        </div>
+
+                        <!-- Impact India -->
+                        <div class="cl-card card-impact">
+                            <div class="cl-card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=80" alt="Impact India Social Initiative" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge green-badge"><i class="fa-solid fa-heart"></i> Social Drive</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">🌍 Impact India</h3>
+                                <span class="cl-card-subtag">Community Service</span>
+                                <p class="cl-card-desc">"Making a difference beyond campus through social initiatives and community service."</p>
+                            </div>
+                        </div>
+
+                        <!-- AIESEC Egypt -->
+                        <div class="cl-card card-egypt">
+                            <div class="cl-card-img-wrapper">
+                                <img src="assets/aiesec_egypt.jpg" alt="AIESEC Egypt International Program" class="cl-card-img">
+                                <div class="cl-card-gradient"></div>
+                                <span class="cl-badge orange-badge"><i class="fa-solid fa-plane"></i> Global Exposure</span>
+                            </div>
+                            <div class="cl-card-content">
+                                <h3 class="cl-card-title">✈️ AIESEC Egypt</h3>
+                                <span class="cl-card-subtag">International Collaboration</span>
+                                <p class="cl-card-desc">"Global exposure, international collaborations, leadership, and experiences beyond borders."</p>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                </section>
+
+                <hr class="section-divider">
+
+                <!-- PART 2 — NST DICTIONARY -->
+                <section class="nst-dictionary-section">
+                    <div class="section-header-block text-center">
+                        <h2 class="dict-heading">Learn the Language.</h2>
+                        <p class="dict-subheading">Five words you'll hear every single day.</p>
+                    </div>
+
+                    <div class="slang-grid">
+                        
+                        <!-- Card 1 -->
+                        <div class="slang-card rot-neg-2">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🤝</span>
+                                <h3 class="slang-word">Bhaiya / Didi</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Your seniors (2nd Year)."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="slang-card rot-pos-2">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🫡</span>
+                                <h3 class="slang-word">Sir / Ma'am</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Your super seniors (3rd Year)."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="slang-card rot-neg-3">
+                            <div class="slang-header">
+                                <span class="slang-emoji">🔥</span>
+                                <h3 class="slang-word">Lessgoooo Hai!</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Trigger word for doing a task as soon as someone says this word or sometimes use when something exciting just happened."</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="slang-card rot-pos-3">
+                            <div class="slang-header">
+                                <span class="slang-emoji">⚡</span>
+                                <h3 class="slang-word">Game Haii!</h3>
+                            </div>
+                            <div class="slang-body">
+                                <p class="slang-meaning">"Use when some of your friend does something crazy which others couldn't."</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom Quote -->
+                    <div class="dictionary-quote-box">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <blockquote class="quote-text">
+                            "You'll come here knowing no one.<br>
+                            You'll leave knowing everyone."
+                        </blockquote>
+                        <div class="quote-icon right"><i class="fa-solid fa-quote-right"></i></div>
+                    </div>
+                </section>
+
             </div>
         </div>
     </div>
