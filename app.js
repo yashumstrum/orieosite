@@ -580,6 +580,36 @@ const pocData = [
         image: "assets/kavya_arora.jpg",
         phone: "",
         email: "kavya.arora@newtonschool.co"
+    },
+    {
+        name: "Yasiq Iqbal",
+        role: "OC STUDENT LEAD ACTIVITIES",
+        dept: "events",
+        desc: "Student lead for icebreaker activities, student engagement, and interactive campus games.",
+        avatar: "fa-champagne-glasses",
+        image: "assets/yasiq_iqbal.jpg",
+        phone: "",
+        email: "yasiq.iqbal@newtonschool.co"
+    },
+    {
+        name: "Mridul Bansal",
+        role: "OC DECOR",
+        dept: "creative",
+        desc: "Co-lead for campus decor, backdrop installations, and orientation theme design.",
+        avatar: "fa-paintbrush",
+        image: "assets/mridul_bansal.jpg",
+        phone: "",
+        email: "mridul.bansal@newtonschool.co"
+    },
+    {
+        name: "Prachi Gidwani",
+        role: "OC DECOR",
+        dept: "creative",
+        desc: "Co-lead for entrance decor, art props, floral arrangements, and stage design.",
+        avatar: "fa-palette",
+        image: "assets/prachi_gidwani.jpg",
+        phone: "",
+        email: "prachi.gidwani@newtonschool.co"
     }
 ];
 
