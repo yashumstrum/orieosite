@@ -469,6 +469,36 @@ function initCountdownTimer() {
    ========================================================================== */
 const pocData = [
     {
+        name: "Vedant Tawde",
+        role: "WEBSITE DEVELOPER",
+        dept: "coordination",
+        desc: "Core Web Architect & Lead Developer building the interactive 3D Voxel NST Orientation 2026 Portal.",
+        avatar: "fa-code",
+        image: "assets/vedant_tawde.jpg",
+        phone: "",
+        email: "vedant.tawde@newtonschool.co"
+    },
+    {
+        name: "Ashmit Sahu",
+        role: "WEBSITE DEVELOPER",
+        dept: "coordination",
+        desc: "Full-Stack Web Developer designing pixel-perfect UI components, 3D interactive islands, and user flows.",
+        avatar: "fa-laptop-code",
+        image: "assets/ashmit_sahu.jpg",
+        phone: "",
+        email: "ashmit.sahu@newtonschool.co"
+    },
+    {
+        name: "Abhinav Singh",
+        role: "WEBSITE DEVELOPER",
+        dept: "coordination",
+        desc: "Lead Frontend Developer crafting responsive layouts, animations, and custom modal experiences.",
+        avatar: "fa-terminal",
+        image: "assets/abhinav_singh.jpg",
+        phone: "",
+        email: "abhinavsinghdhakrekm@gmail.com"
+    },
+    {
         name: "Vanshika Soni",
         role: "OC LEAD",
         dept: "coordination",
