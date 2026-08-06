@@ -732,6 +732,46 @@ const pocData = [
         image: "assets/mahith_chenna.jpg",
         phone: "",
         email: "mahith.chenna@newtonschool.co"
+    },
+    {
+        name: "Akhilesh Sude",
+        role: "TREASURE HUNT LEAD",
+        dept: "events",
+        desc: "Lead coordinator for campus treasure hunt challenges, clue routing, and team competitions.",
+        avatar: "fa-compass",
+        image: "assets/akhilesh_sude.jpg",
+        phone: "",
+        email: "akhilesh.sude@newtonschool.co"
+    },
+    {
+        name: "Suhani Sharma",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads event documentation, schedules, verification slips, and record archives.",
+        avatar: "fa-file-signature",
+        image: "assets/suhani_sharma.jpg",
+        phone: "",
+        email: "suhani.sharma@newtonschool.co"
+    },
+    {
+        name: "Kritika Pandey",
+        role: "OC EMCEE LEAD",
+        dept: "events",
+        desc: "Lead Master of Ceremonies managing stage hosting, guest introductions, and anchor coordination.",
+        avatar: "fa-microphone-lines",
+        image: "assets/kritika_pandey.jpg",
+        phone: "",
+        email: "kritika.pandey@newtonschool.co"
+    },
+    {
+        name: "Tanushree Banerjee",
+        role: "OC EMCEE",
+        dept: "events",
+        desc: "Official Master of Ceremonies co-hosting stage activities, guest introductions, and ceremonies.",
+        avatar: "fa-microphone",
+        image: "assets/tanushree_banerjee.jpg",
+        phone: "",
+        email: "tanushree.banerjee@newtonschool.co"
     }
 ];
 
