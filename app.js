@@ -535,10 +535,10 @@ const pocData = [
     },
     {
         name: "Vansh Chaturvedi",
-        role: "OC TSHIRT DESIGN",
+        role: "OC DESIGN TEAM",
         dept: "creative",
-        desc: "Lead designer for official orientation merchandise, batch T-shirts, and apparel branding.",
-        avatar: "fa-shirt",
+        desc: "Designer for official orientation merchandise, batch T-shirts, and creative branding.",
+        avatar: "fa-palette",
         image: "assets/vansh_chaturvedi.jpg",
         phone: "",
         email: "vansh.chaturvedi@newtonschool.co"
@@ -575,10 +575,10 @@ const pocData = [
     },
     {
         name: "Kavya Arora",
-        role: "OC TSHIRT DESIGN",
+        role: "OC DESIGN TEAM",
         dept: "creative",
-        desc: "Designer for official orientation merchandise, batch T-shirts, and apparel branding.",
-        avatar: "fa-shirt",
+        desc: "Designer for official orientation merchandise, batch T-shirts, and creative branding.",
+        avatar: "fa-palette",
         image: "assets/kavya_arora.jpg",
         phone: "",
         email: "kavya.arora@newtonschool.co"
