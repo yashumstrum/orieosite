@@ -627,13 +627,15 @@ function initPocDirectory() {
     renderPocs(pocData);
     
     // Filter and Search Logic
+    // Filter and Search Logic
     function handleFilters() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
         const activeFilterBtn = document.querySelector('#poc-filters .filter-btn.active');
         const activeCategory = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'all';
         
         const filtered = pocData.filter(poc => {
-            const matchesSearch = poc.name.toLowerCase().includes(searchTerm) || 
+            const matchesSearch = !searchTerm || 
+                                  poc.name.toLowerCase().includes(searchTerm) || 
                                   poc.role.toLowerCase().includes(searchTerm) ||
                                   poc.desc.toLowerCase().includes(searchTerm);
             const matchesCategory = activeCategory === 'all' || poc.dept === activeCategory;
