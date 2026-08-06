@@ -651,6 +651,46 @@ const pocData = [
         image: "assets/rameez_rahman.jpg",
         phone: "",
         email: "rameez.rahman@newtonschool.co"
+    },
+    {
+        name: "Suhani Singh",
+        role: "OC EMCEE",
+        dept: "events",
+        desc: "Official Master of Ceremonies co-hosting stage activities and orientation events.",
+        avatar: "fa-microphone",
+        image: "assets/suhani_singh.jpg",
+        phone: "",
+        email: "suhani.singh@newtonschool.co"
+    },
+    {
+        name: "Ipsit Debnath",
+        role: "ROBOTICS LEAD",
+        dept: "events",
+        desc: "Lead for tech exhibitions, robotics showcases, and innovation workshops.",
+        avatar: "fa-robot",
+        image: "assets/ipsit_debnath.jpg",
+        phone: "",
+        email: "ipsit.debnath@newtonschool.co"
+    },
+    {
+        name: "Nitya Patel",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads documentation, verification records, and orientation archives.",
+        avatar: "fa-file-lines",
+        image: "assets/nitya_patel.jpg",
+        phone: "",
+        email: "nitya.patel@newtonschool.co"
+    },
+    {
+        name: "Shriyash Deshmukh",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads event documentation, schedules, verification slips, and records.",
+        avatar: "fa-clipboard-list",
+        image: "assets/shriyash_deshmukh.jpg",
+        phone: "",
+        email: "shriyash.deshmukh@newtonschool.co"
     }
 ];
 
