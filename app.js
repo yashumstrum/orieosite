@@ -530,6 +530,56 @@ const pocData = [
         image: "assets/ekta_sachdev.jpg",
         phone: "+917024893381",
         email: "ekta.sachdev@newtonschool.co"
+    },
+    {
+        name: "Vansh Chaturvedi",
+        role: "OC TSHIRT DESIGN",
+        dept: "creative",
+        desc: "Lead designer for official orientation merchandise, batch T-shirts, and apparel branding.",
+        avatar: "fa-shirt",
+        image: "assets/vansh_chaturvedi.jpg",
+        phone: "",
+        email: "vansh.chaturvedi@newtonschool.co"
+    },
+    {
+        name: "Aman Sharma",
+        role: "OC THEATRE",
+        dept: "events",
+        desc: "Incharge of stage plays, drama performances, and auditorium theater productions.",
+        avatar: "fa-masks-theater",
+        image: "assets/aman_sharma.jpg",
+        phone: "",
+        email: "aman.sharma@newtonschool.co"
+    },
+    {
+        name: "Aaryan Sharma",
+        role: "OC DECOR",
+        dept: "creative",
+        desc: "Lead for campus ambiance, stage decoration, theme art, and orientation visual aesthetics.",
+        avatar: "fa-paintbrush",
+        image: "assets/aaryan_sharma.jpg",
+        phone: "",
+        email: "aaryan.sharma@newtonschool.co"
+    },
+    {
+        name: "Sunny Kushwaha",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Manages event documentation, logs, attendance sheets, and record archives.",
+        avatar: "fa-file-signature",
+        image: "assets/sunny_kushwaha.jpg",
+        phone: "",
+        email: "sunny.kushwaha@newtonschool.co"
+    },
+    {
+        name: "Kavya Arora",
+        role: "OC DECOR",
+        dept: "creative",
+        desc: "Co-leads decor planning, entrance artwork, props, and campus aesthetic setups.",
+        avatar: "fa-palette",
+        image: "assets/kavya_arora.jpg",
+        phone: "",
+        email: "kavya.arora@newtonschool.co"
     }
 ];
 
@@ -561,11 +611,12 @@ function initPocDirectory() {
                 <div class="poc-info">
                     <span class="poc-role-badge">${poc.role}</span>
                     <h3 class="poc-name">${poc.name}</h3>
+                    ${poc.phone ? `
                     <div class="poc-contacts">
                         <a href="https://wa.me/${poc.phone.replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(poc.name)},%20I%20am%20a%20junior%20joining%20NST..." target="_blank" class="contact-link whatsapp" title="Chat on WhatsApp with ${poc.name}">
                             <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
                         </a>
-                    </div>
+                    </div>` : ''}
                 </div>
             `;
             grid.appendChild(card);
