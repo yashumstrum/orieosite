@@ -2532,6 +2532,161 @@ body.dark-theme .theme-label {
 
 
 /* ==========================================================================
+   PDF PAGE 1 & PAGE 2 MINECRAFT STYLE SCHEDULE
+   ========================================================================== */
+.pdf-schedule-header-card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(15, 23, 42, 0.9));
+    border: 3px solid #38bdf8;
+    border-radius: 16px;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
+}
+
+.pdf-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pdf-tag-mint {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    color: #38bdf8;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pdf-tag-date {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    color: #fef08a;
+    background: rgba(254, 240, 138, 0.15);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(254, 240, 138, 0.4);
+}
+
+.pdf-main-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 0 #0284c7;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.pdf-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.2rem;
+}
+
+.pdf-meta-pills {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+
+.pdf-pill {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.pdf-pill.gold  { background: #f59e0b; color: #451a03; }
+.pdf-pill.cyan  { background: #06b6d4; color: #083344; }
+.pdf-pill.green { background: #10b981; color: #022c22; }
+
+.pdf-world-box {
+    background: rgba(122, 79, 0, 0.3);
+    border: 2px dashed #f59e0b;
+    border-radius: 10px;
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.pdf-world-line {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    color: #fef08a;
+}
+
+.pdf-world-line strong {
+    color: #ffffff;
+}
+
+/* PDF PAGE 2 DAY 01 BANNER */
+.pdf-day-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.pdf-day-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    background: #f59e0b;
+    color: #451a03;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.pdf-day-date {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.45rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pdf-day-biome {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    color: #38bdf8;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pdf-day-title-block {
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #f59e0b;
+    padding-left: 1rem;
+}
+
+.pdf-day-headline {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #fef08a;
+    text-shadow: 2px 2px 0 #7a4f00;
+    margin-bottom: 0.3rem;
+}
+
+.pdf-day-subhead {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
    CAMPUS LIFE & NST DICTIONARY DESIGN SYSTEM
    ========================================================================== */
 .campus-life-section, .nst-dictionary-section {
