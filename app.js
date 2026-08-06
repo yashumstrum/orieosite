@@ -787,21 +787,30 @@ function initCampusMapInteractions() {
             </div>
         `;
         
-            // Show corresponding landmark info & highlight on map
-            setTimeout(() => {
-                showLandmarkInfo(landmarkId);
-            }, 50);
+        // Highlight active hotspot pin
+        hotspots.forEach(hs => hs.classList.remove('active'));
+        const targetPin = document.querySelector(`.map-hotspot[data-landmark="${landmarkId}"]`);
+        if (targetPin) {
+            targetPin.classList.add('active');
+        }
+    }
+    
+    hotspots.forEach(hs => {
+        hs.addEventListener('click', () => {
+            const landmarkId = hs.getAttribute('data-landmark');
+            showLandmarkInfo(landmarkId);
         });
     });
     
-    // Setup tabs logic manually inside Schedule Modal
-    if (tabSched && tabMap) {
+    // Tab Switching Logic
+    if (tabSched && tabMap && tabSchedList && tabCampusMap) {
         tabSched.addEventListener('click', () => {
             tabSched.classList.add('active');
             tabMap.classList.remove('active');
             tabSchedList.classList.add('active');
             tabCampusMap.classList.remove('active');
         });
+        
         tabMap.addEventListener('click', () => {
             tabMap.classList.add('active');
             tabSched.classList.remove('active');
@@ -809,6 +818,25 @@ function initCampusMapInteractions() {
             tabSchedList.classList.remove('active');
         });
     }
+    
+    // Venue Tag Triggers in Schedule Timeline
+    document.querySelectorAll('.highlight-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetVenue = trigger.getAttribute('data-target-venue');
+            let landmarkId = 'lm-academic';
+            if (targetVenue === 'auditorium') landmarkId = 'lm-auditorium';
+            if (targetVenue === 'academic') landmarkId = 'lm-academic';
+            if (targetVenue === 'sports') landmarkId = 'lm-sports';
+            if (targetVenue === 'library') landmarkId = 'lm-library';
+            if (targetVenue === 'cafeteria') landmarkId = 'lm-cafeteria';
+            if (targetVenue === 'hostel') landmarkId = 'lm-hostel';
+            
+            // Switch to map tab
+            if (tabMap) tabMap.click();
+            setTimeout(() => showLandmarkInfo(landmarkId), 150);
+        });
+    });
 }
 
 /* ==========================================================================
