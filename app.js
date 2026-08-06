@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initOrientationLoader();
     initStarsBackground();
+    initThemeToggle();
     initModalControls();
     initCountdownTimer();
     initPocDirectory();
@@ -920,3 +921,36 @@ function initIslandXPOrbs() {
         });
     });
 }
+
+/* ==========================================================================
+   11. Minecraft Dark / Light Theme Toggle
+   ========================================================================== */
+function initThemeToggle() {
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeLabel = document.getElementById('theme-label');
+
+    if (!themeBtn || !themeIcon || !themeLabel) return;
+
+    // Load stored preference
+    const savedTheme = localStorage.getItem('tekron-theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'LIGHT';
+    }
+
+    themeBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-theme');
+        if (isDark) {
+            themeIcon.textContent = '☀️';
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('tekron-theme', 'dark');
+        } else {
+            themeIcon.textContent = '🌙';
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('tekron-theme', 'light');
+        }
+    });
+}
+
