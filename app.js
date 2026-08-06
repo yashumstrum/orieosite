@@ -766,41 +766,12 @@ const landmarkDetails = {
 };
 
 function initCampusMapInteractions() {
-    const hotspots = document.querySelectorAll('.map-hotspot');
-    const infoDisplay = document.getElementById('landmark-info-display');
     const tabSched = document.getElementById('btn-tab-sched');
     const tabMap = document.getElementById('btn-tab-map');
     const tabSchedList = document.getElementById('tab-schedule-list');
     const tabCampusMap = document.getElementById('tab-campus-map');
     
-    if (!infoDisplay) return;
-    
-    function showLandmarkInfo(landmarkId) {
-        const data = landmarkDetails[landmarkId];
-        if (!data) return;
-        
-        infoDisplay.innerHTML = `
-            <h3 class="info-title" style="color: var(--color-cyan); font-family: 'Press Start 2P', monospace; font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.8rem;">${data.title}</h3>
-            <p class="info-body" style="font-size: 0.88rem; line-height: 1.6; color: #475569; margin-bottom: 1rem;">${data.body}</p>
-            <div class="info-details-box" style="background: rgba(2, 132, 199, 0.08); border-left: 3px solid #0284c7; padding: 0.8rem 1rem; border-radius: 0 6px 6px 0; font-size: 0.82rem; color: #0f172a;">
-                ${data.details}
-            </div>
-        `;
-        
-        hotspots.forEach(hs => hs.classList.remove('active'));
-        const targetPin = document.querySelector(`.map-hotspot[data-landmark="${landmarkId}"]`);
-        if (targetPin) {
-            targetPin.classList.add('active');
-        }
-    }
-    
-    hotspots.forEach(hs => {
-        hs.addEventListener('click', () => {
-            const landmarkId = hs.getAttribute('data-landmark');
-            showLandmarkInfo(landmarkId);
-        });
-    });
-    
+    // Setup Tab Switching unconditionally
     if (tabSched && tabMap && tabSchedList && tabCampusMap) {
         tabSched.addEventListener('click', () => {
             tabSched.classList.add('active');
@@ -819,17 +790,7 @@ function initCampusMapInteractions() {
     document.querySelectorAll('.highlight-trigger').forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.stopPropagation();
-            const targetVenue = trigger.getAttribute('data-target-venue');
-            let landmarkId = 'lm-academic';
-            if (targetVenue === 'auditorium') landmarkId = 'lm-auditorium';
-            if (targetVenue === 'academic') landmarkId = 'lm-academic';
-            if (targetVenue === 'sports') landmarkId = 'lm-sports';
-            if (targetVenue === 'library') landmarkId = 'lm-library';
-            if (targetVenue === 'cafeteria') landmarkId = 'lm-cafeteria';
-            if (targetVenue === 'hostel') landmarkId = 'lm-hostel';
-            
             if (tabMap) tabMap.click();
-            setTimeout(() => showLandmarkInfo(landmarkId), 150);
         });
     });
 }
