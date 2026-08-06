@@ -772,6 +772,15 @@ const pocData = [
         image: "assets/tanushree_banerjee.jpg",
         phone: "",
         email: "tanushree.banerjee@newtonschool.co"
+    },
+    {
+        name: "Deepak Kumar",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads event documentation, schedules, verification slips, and record archives.",
+        avatar: "fa-file-signature",
+        phone: "",
+        email: "deepak.kumar@newtonschool.co"
     }
 ];
 
