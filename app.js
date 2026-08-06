@@ -575,10 +575,10 @@ const pocData = [
     },
     {
         name: "Kavya Arora",
-        role: "OC DECOR",
+        role: "OC TSHIRT DESIGN",
         dept: "creative",
-        desc: "Co-leads decor planning, entrance artwork, props, and campus aesthetic setups.",
-        avatar: "fa-palette",
+        desc: "Designer for official orientation merchandise, batch T-shirts, and apparel branding.",
+        avatar: "fa-shirt",
         image: "assets/kavya_arora.jpg",
         phone: "",
         email: "kavya.arora@newtonschool.co"
