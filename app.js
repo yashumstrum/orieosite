@@ -780,10 +780,10 @@ const pocData = [
     },
     {
         name: "Akhilesh Sude",
-        role: "TREASURE HUNT LEAD",
-        dept: "events",
-        desc: "Lead coordinator for campus treasure hunt challenges, clue routing, and team competitions.",
-        avatar: "fa-compass",
+        role: "OC DOCUMENTATION",
+        dept: "coordination",
+        desc: "Co-leads event documentation, schedules, verification slips, and record archives.",
+        avatar: "fa-file-signature",
         image: "assets/akhilesh_sude.jpg",
         phone: "",
         email: "akhilesh.sude@newtonschool.co"
