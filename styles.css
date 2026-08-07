@@ -2197,6 +2197,8 @@ body {
     background: #f9c74f;
     padding: 10px 14px;
     min-width: 62px;
+    height: 52px;
+    box-sizing: border-box;
     text-decoration: none;
     /* Pixel-art Minecraft button border */
     box-shadow:
@@ -2233,10 +2235,13 @@ body {
 }
 
 .insta-icon {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     line-height: 1;
     color: #ffffff;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
 }
 
 .insta-label {
@@ -2274,10 +2279,13 @@ body {
 
 .sound-icon,
 .theme-icon {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1;
     color: #1a0a00;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
 }
 
 .sound-label,
